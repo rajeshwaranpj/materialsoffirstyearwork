@@ -4,3 +4,7 @@ npm install karma-chrome-launcher
 -npm install jasmine
 npm install -g karma-cli 
 karma start karma.config.js
+
+
+
+karma start karma.ci.config.js for running istanbul
