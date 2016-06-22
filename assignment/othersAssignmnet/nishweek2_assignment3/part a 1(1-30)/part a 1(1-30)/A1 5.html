@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+      <p><input type="text" id="mydate"/></p>
+     <button>check</button>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("p").addClass(count());
+
+            });
+        });
+        function count() {
+            var mydate = document.getElementById("mydate").value;
+            var now = new Date(mydate);
+            var start = new Date(now.getFullYear(), 0, 0);
+            var diff = now - start;
+            var oneDay = 1000 * 60 * 60 * 24;
+            var day = Math.floor(diff / oneDay);
+            alert(day);
+        }
+
+      </script>
+
+</body>
+</html>

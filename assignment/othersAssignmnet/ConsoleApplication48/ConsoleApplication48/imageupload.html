@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="style/ques2.css" rel="stylesheet" />
+    
+    <title></title>
+    <script>
+        function deleteRow(obj) {
+
+            var index = obj.parentNode.parentNode.rowIndex;
+            var table = document.getElementById("mytable");
+            table.deleteRow(index);
+
+        }
+        </script>
+   
+
+    <script type="text/javascript">
+        function imagesize(max_img_size) {
+            var input = document.getElementById("files");
+
+            if (input.files) {
+                if (input.files[0].size > max_img_size) {
+                    alert("The file must be less than " + (max_img_size / 1024 / 1024) + "MB");
+                    return false;
+                }
+            }
+            alert("Images Submitted");
+            return true;
+        }
+    </script>
+    <style>
+        body {
+        background-color:#0094ff;
+        
+        }
+        #mytable {
+        align-content:center;
+        
+        }
+
+    </style>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data" onsubmit="return imagesize(2000000)">
+        <div id="div1">
+            
+            <input type="file" id="files" name="files[]" accept="image/gif, image/jpeg, image/png" />
+
+            <table id="mytable" border="1">
+                
+            </table>
+
+            <script>
+                function handleFileSelect(evt) {
+                    var files = evt.target.files;
+                  for (var i = 0, f; f = files[i]; i++) {
+                        var reader = new FileReader();
+                       reader.onload = (function (theFile) {
+                            return function (e) {
+
+                                var table = document.getElementById("mytable");
+                                var rowCount = table.rows.length;
+
+                                var row = table.insertRow(rowCount);
+                                var cell1 = row.insertCell(0);
+                                var cell2 = row.insertCell(1);
+                                cell1.innerHTML = ['<img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
+                                cell2.innerHTML = '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
+
+                                cell2.appendChild(element1);
+
+                            };
+                        })(f);
+                        reader.readAsDataURL(f);
+                    }
+                }
+
+                document.getElementById('files').addEventListener('change', handleFileSelect, false);
+            </script>
+
+            <input type="submit" />
+        </div>
+        </form>
+</body>
+</html>

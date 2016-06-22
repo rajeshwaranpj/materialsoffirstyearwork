@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="Style2.css" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#table1").hide();
+        });
+        function submit() {
+            $("#table1").show();
+            $("#table1").append("<tr>" + "<td>" + qual.value + "</td>" + "<td>"
+                + col.value + "</td>" + "<td>" + address1.value + "</td>" + "<td>"
+                + percent.value + "</td>" + "<td>" + grade.value + "</td>" + "<td>"
+                + yr.value + "</td>" + "</tr>"
+                )
+        }
+     
+      </script>
+      <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color:#367da7;
+      }
+      #map {
+        height: 20%;
+        width:20%;
+        top:500px;
+        left:500px;
+      }
+.controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+.pac-container {
+  font-family: Roboto;
+}
+
+#type-selector {
+  color: #fff;
+  background-color: #4d90fe;
+  padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+    </style>
+    <title>Places Searchbox</title>
+    <style>
+      #target {
+        width: 345px;
+      }
+    </style>
+</head>
+<body>
+  
+    <div id="map"></div>
+   
+    <script>
+       function initAutocomplete() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: -33.8688, lng: 151.2195 },
+                zoom: 13,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+            var input = document.getElementById('locality');
+            var searchBox = new google.maps.places.SearchBox(input);
+            //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+            // Bias the SearchBox results towards current map's viewport.
+            map.addListener('bounds_changed', function () {
+                searchBox.setBounds(map.getBounds());
+            });
+
+            var markers = [];
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            searchBox.addListener('places_changed', function () {
+                var places = searchBox.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+
+                // Clear out the old markers.
+                markers.forEach(function (marker) {
+                    marker.setMap(null);
+                });
+                markers = [];
+
+                // For each place, get the icon, name and location.
+                var bounds = new google.maps.LatLngBounds();
+                places.forEach(function (place) {
+                    var icon = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(17, 34),
+                        scaledSize: new google.maps.Size(25, 25)
+                    };
+
+                    // Create a marker for each place.
+                    markers.push(new google.maps.Marker({
+                        map: map,
+                        icon: icon,
+                        title: place.name,
+                        position: place.geometry.location
+                    }));
+
+                    if (place.geometry.viewport) {
+                        // Only geocodes have viewport.
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                map.fitBounds(bounds);
+            });
+       } </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATeF9i0gYa9yKILBhiiM-yTaQs9i25fo0 &libraries=places&callback=initAutocomplete"
+         async defer></script>
+
+
+    <div id="container">  
+    <form><h1>person details</h1><table >
+    <tr><td>FirstName</td>
+    <td><input id="Fname" name="FirstName" type="text" required="" placeholder="enter the text"/> </td></tr>
+    <tr><td>LastName</td>
+    <td><input id="lname" name="LAstName" type="text" required="" placeholder="enter the text"/></td></tr> 
+    <tr><td>Address</td>
+    <td><input id="address" name="address" type="text"  required="" placeholder="enter the text" /></td> </tr>
+    <tr><td>Locality</td>
+    <td><input id="locality" name="locality" type="text"  required="" placeholder="enter the text" /></td></tr> 
+     <tr><td>city</td>
+    <td><input id="city" name="city" type="text"  required="" placeholder="enter the text" /></td> </tr>
+    <tr><td>Pincode</td>
+    <td><input id="code" name="pincode" type="text" required="" placeholder="enter the text"/></td></tr>
+    <tr><td>phoneno:</td>
+    <td><input id="phone" name="phoneno" type="text" required="" placeholder="enter the text"/></td> </tr>
+      <tr><td>Email</td>
+    <td><input id="email" name="email" type="email" required="" placeholder="enter the text"/></td> </tr>
+    <tr><td>qualification</td><td> <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">fill your details</button></td></tr>
+ </table>  
+        <div id="div1">
+      <table id="table1">
+        <tr>
+        <td>qualification</td>
+        <td>college</td>
+        <td>college address</td>
+        <td>percentage</td>
+        <td>grade</td>
+        <td>year</td>
+        </tr>
+          
+      </table><button type="submit" value="submit">submit</button>
+</div>
+ </form></div> 
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">qualification</h4>
+      </div> 
+      <div class="modal-body">
+       <table>
+           <tr><td>qualification</td><td><input id="qual" name="qualification" type="text" required="" placeholder="enter the text"/></td></tr>
+            <tr><td>college</td><td><input id="col" name="college" type="text" required="" placeholder="enter the text"/></td></tr>
+            <tr><td>college address</td><td><input id="address1" name="address" type="text" required="" placeholder="enter the text"/></td></tr>
+            <tr><td>percentage</td><td><input id="percent" name="percentage" type="text" required="" placeholder="enter the text"/></td></tr>
+            <tr><td>grade</td><td><input id="grade" name="grade" type="text" required="" placeholder="enter the text"/></td></tr>
+            <tr><td>year</td><td><input id="yr" name="year" type="text" required="" placeholder="enter the text"/></td></tr>
+
+
+       </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button"  id="submit" onclick="submit()">submit</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  
+  
+</body>
+</html>

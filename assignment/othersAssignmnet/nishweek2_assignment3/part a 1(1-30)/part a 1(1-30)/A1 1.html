@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+      <p><input type="text" id="radius"/></p>
+    <button>check</button>
+
+     <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("p").addClass(calc());
+     
+            });
+        });
+        function calc() {
+            var r = document.getElementById("radius").value;
+            var area = r * r * 3.14;
+            var perimeter = 2 * r * 3.14;
+            alert("the area of circle is :" + area + "\nthe perimeter is:" + perimeter);
+        }
+        </script>
+
+</body>
+</html>
