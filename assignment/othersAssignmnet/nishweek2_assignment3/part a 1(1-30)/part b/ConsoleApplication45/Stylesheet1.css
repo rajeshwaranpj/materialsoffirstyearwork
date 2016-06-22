@@ -1,0 +1,152 @@
+﻿body {
+background-color:rgb(237,237,240);
+
+}
+#header {
+padding:1rem;
+background-color:black;
+width:100%;
+height:60px;
+top:0;
+left:0;
+margin:0px auto;
+border:1px solid #CCC;
+position:fixed;
+}
+#image 
+{
+ margin-left:50px;
+ width: 12.5%;
+float:left;
+width:100%;
+height:auto;
+ border-radius:50px;
+}
+#headshot {
+ margin-top:-40px;
+ margin-right:40px;
+text-align:right;
+float:right;
+color:white;
+}
+    #headshot ul li a.aqua {
+    color:aqua;
+    
+    }
+    #headshot ul li a.h {
+     color:white;
+    text-decoration:none;
+    }
+    #headshot ul li {
+    list-style-type:none;
+   
+    }
+#breadcrumb {
+    float: left;
+}
+#breadcrumb ul li {
+list-style-type:none;
+
+}
+    #breadcrumb ul li a.bread {
+        text-decoration:none;
+        color:seagreen;
+    }
+
+#right {
+float:right;
+color:seagreen;
+}
+#line1 {
+margin-top:85px;
+margin-left:30px;
+}
+#tabs ul li {
+float:left;
+list-style-type:none;
+margin-top:65px;
+margin-left:-480px;
+}
+#tabs1 ul li {
+
+float:right;
+list-style-type:none;
+margin-top:65px;
+margin-right:90px;
+}
+#tabs ul li a.button {
+color:white;
+background-color:#808080;
+padding:4px;
+text-decoration:none;
+}
+#tabs ul li a.spec {
+    color:white;
+background-color:seagreen;
+padding:4px;
+text-decoration:none;
+}
+#tabs1 ul li a.f2 {
+    color:white;
+background-color:#808080;
+padding:4px;
+text-decoration:none;
+}
+#line2 {
+/*margin-top:-45px;
+margin-left:40px;*/
+
+}
+#line3 {
+float:left;
+}
+    #line3 ul li a.f3 {
+    text-decoration:none;
+    
+    }
+    #line3 ul li {
+    list-style-type:none;
+    margin-left:30px;
+    }
+#left1 {
+    font-size:large;
+    margin-left:-395px;
+    margin-top:50px;
+float:left;}
+#right1 {
+    margin-top:30px;
+float:right;
+}
+#line4 {
+ 
+}
+.d1{
+    float:left;
+   margin-right:-40px;
+  
+}
+.d2 {
+    float: right;
+     margin-bottom:0px;
+     margin-left:350px;
+    
+}
+#table1{
+    margin-left:30px;
+}
+#table2{
+
+    margin-left:30px;
+}
+.mark{
+    color:red;
+}
+#author {
+    font-style: italic;
+}
+#main {
+float:left;
+margin-top:60px;
+margin-left:-140px;
+}
+

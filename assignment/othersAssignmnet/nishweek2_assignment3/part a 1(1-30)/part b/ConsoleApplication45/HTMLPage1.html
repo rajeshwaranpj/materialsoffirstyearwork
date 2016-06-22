@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="Stylesheet1.css" />
+    <script>
+        function validateForm() {
+            var x = document.forms["form"]["internal"].value;
+            var y = document.forms["form"]["survey"].value;
+            var z = document.forms["form"]["desp"].value;
+            if (x == null || x == "")
+            {
+            alert("title must be filled out");
+            return false;
+            }
+            if (y == null || y == "") {
+                alert(" survey title must be filled out");
+                return false;
+            }
+            if (z == null || z == "") {
+                alert(" discription must be filled out");
+                return false;
+            }
+               }
+                 </script>
+</head>
+<body>
+  <!--  <div="whole">-->
+        <div id="header">
+            <div id="image">
+                <img src="msconnect.png" />
+            </div>
+            <div id="headshot">
+              
+                <ul>
+                    <li>Microsoftconnect 15.7.33262.08250<a class="aqua">logged in as REDMOND\connsa</a></li>
+                    <li>
+                        <a class="h" href="#">your connection|</a>
+                        <a class="h" href="#">New connection|</a>
+                        <a class="h" href="#">what is connect?|</a>
+                        <a class="h" href="#">support</a>
+                   </li>
+                </ul>
+            </div>
+        </div>
+        <div id="line1">
+             <div id="breadcrumb"> 
+                 <ul>
+                    <li>
+                        <a class="bread"  href="#hh">your connection ></a>
+                        <a class="bread"  href="#hh">connection home ></a>
+                        <a class="bread"  href="#hh">assets ></a>
+                        <a class="bread"  href="#hh">surveys ></a>
+                        create new survey
+            
+                    </li>
+                 </ul>
+             </div>
+             <div id="right">
+                  <p color:"aqua">windows server and system server</p>
+             </div>
+        </div>
+    <div="line2">
+        <div id="tabs">
+             <ul>
+                    <li>
+                        <a class="button" href="#bb">connection home</a>
+                        <a class="spec" href="#bb">assets</a>
+                        <a class="button" href="#bb">users</a>
+                        <a class="button" href="#bb">email</a>
+                        <a class="button" href="#bb">feedback</a>
+                        <a class="button" href="#bb">forum</a>
+                        <a class="button" href="#bb">yammer</a>
+                        <a class="button" href="#bb">reports</a>
+                     </li>
+                 </ul>
+        </div>
+        <div id="tabs1">
+             <ul>
+                 <li>
+                <a class="f2" href="#bb">Super Admin</a>
+                <a class="f2" href="#bb">setting</a>
+                <a class="f2" href="#bb">My account</a>
+                <a class="f2" href="#bb">System Health</a></li>
+             </ul>
+        </div>
+        </div>
+    
+        <div id="line3">
+         <ul>
+            <li><small>
+                <a class="f3" href="#bb">contents|</a>
+                <a class="f3" href="#bb">downloads|</a>
+                <a class="f3" href="#bb">images|</a>
+                <a class="f3" href="#bb">Surveys|</a>
+                <a class="f3" href="#bb">product keys|</a>
+                <a class="f3" href="#bb">invitation ID groups</a>
+            </small></li>
+        </ul>        
+      </div>
+    <div id="line4">
+        <div id="left1">Create New Survey</div>
+        <div id="right1" ><img src="question.png" /> </div>
+     </div>
+    <div id="main">
+          <div class="d1">
+              <form id="form" onsubmit="return validate()">
+                <h4>Internal Properties</h4>
+                <table id="table1">
+                    <tr><td>*Internal Title:</td><td><input type="text" name="internal" required="required"  placeholder="enter the text"/></td></tr>
+                    <tr><td>*Type</td><td><select>
+                        <option value="General">General</option>
+                        <option value="kigvre">kigvre</option>
+                        <option value="qawsdqw">qawsdqw</option>
+                        </select></td></tr>
+                    <tr><td>Mandatory Date:</td><td><input type="date" /></td></tr>
+                    <tr><td>Behaviour:</td><td><input type="checkbox" />Make survey responses anonymous</td></tr>
+                    <tr><td></td><td><input type="checkbox" />Allow multiple survey submissions</td></tr>
+                    <tr><td></td><td><input type="checkbox" />Allow users to edit their resposes to this survey</td></tr>
+                </table>
+                <h4>External Properties</h4>
+                <table id="table2">
+                    <tr>
+                        <td>*Language</td>
+
+                        <td>
+                            <select>
+                                <option value="English">English</option>
+                                <option value="Chinese">Chinese</option>
+                                <option value="French">French</option>
+                                <option value="Spanish">Spanish</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr><td>*Survey Title:</td><td><input type="text" name="survey" required="required" placeholder="enter the text"/></td></tr>
+                    <tr><td>*Description:</td><td><textarea rows="3" cols="20" name="desp" required="required"></textarea></td></tr>
+                    <tr><td>Header:</td><td><textarea rows="3" cols="20"></textarea></td></tr>
+                    <tr><td>*Activation Date:</td><td><input type="date" required="required"/></td></tr>
+                    <tr><td>Expiration Date:</td><td><input type="date" /></td></tr>
+             
+                    <tr><td></td><td>
+                        <input id="Button1" type="submit" value="submit" /></td></tr>
+</table></form>
+</div>
+            <div class="d2">
+                <h4>Access Permissions</h4>
+                <input name="author" placeholder="Filter Security Groups" id="author" />
+                <h4>Security Groups</h4>
+                <table>
+                    <tr>
+                        <td><input type="checkbox" />Non-Registered Users</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" />Registered Users</td>
+                    </tr>
+                </table>
+               
+                <hr/>
+                <h4>Programs</h4>
+                <table>
+                    <tr>
+                        <td><input type="checkbox" />ProgramID 8044 Storage management partner engagement|DP </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" />ProgramID 8205 store simple</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" />ProgramID 8321 microsoft cloud platform system</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" />ProgramID 8402 SCSM 2012 r2 update</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" />ProgramID 8508 ECG vNext</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" />ProgramID 8509 system centre public</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" />ProgramID 8599 SCSM 2012 r2 update|nominations</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" />ProgramID 8622 OSG|window client vnext</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" />ProgramID 8635 app-v vNext</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" />ProgramID 8760 app-v public</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" />ProgramID 8782 MODAC</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" />ProgramID 8795 MSH| microsoft surface hub EAP</td>
+                        <tr>
+                        <td><input type="checkbox" />ProgramID 8797 rdx|windows 10 retail demo experience</td>
+                    </tr>
+                        <tr>
+                        <td><input type="checkbox" />ProgramID 8533 MBAM vNext</td>
+                    </tr>
+                    
+                </table>
+                <hr/>
+
+                <h4>General Groups</h4>
+                <table>
+                    <tr>
+                        <td><input type="checkbox" />App-v|App-v 5.1 CTP</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" />DPM|Customers</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" />MSH|External</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" />MSH|Internal</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" />OSG|Admin Group</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+
+
+        
+
+
+
+ <!--   </div>-->
+
+</body>
+</html>
