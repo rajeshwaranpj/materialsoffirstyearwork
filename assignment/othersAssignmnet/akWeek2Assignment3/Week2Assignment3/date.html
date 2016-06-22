@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("p").addClass(circle());
+
+            });
+        });
+
+        function circle() {
+            
+            var d1 = document.getElementById("datepicker1").value;
+            var date1 = new Date(d1);
+
+            var d2 = document.getElementById("datepicker2").value;
+            var date2 = new Date(d2);
+            
+            var diff = new Date(date2.getTime() - date1.getTime());
+            
+            var days = diff / (1000 * 60 * 60 * 24);
+
+            alert(days);
+        }
+    </script>
+    <title></title>
+</head>
+<body>
+    <p>From Date: <input type="date" id="datepicker1"></p>
+    <p>To Date: <input type="date" id="datepicker2"></p>
+    <button>find difference</button>
+
+
+</body>
+</html>

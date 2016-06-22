@@ -1,0 +1,21 @@
+﻿body {
+    
+    background: url("../image/road.jpg");
+    background-repeat: no-repeat;
+    background-size:2000px 1000px;
+}
+#imgID {
+
+    height:50px;
+    width:50px;
+    padding-left:54.5%;
+    padding-top:23%;
+   
+}
+
+#birdID {
+    height:100px;
+    width:100px;
+    padding-left:2%;
+    /*padding-top:5%;*/
+}

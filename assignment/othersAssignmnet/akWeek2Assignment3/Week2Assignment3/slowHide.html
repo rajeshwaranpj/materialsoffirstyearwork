@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#hide").click(function () {
+                $("p").hide(2000);
+            });
+            $("#show").click(function () {
+                $("p").show(2000);
+            });
+        });
+    </script>
+    
+    <title></title>
+</head>
+<body>
+    <p>This is a paragraph.</p>
+    <button id="hide">Hide Paragraph</button>
+    <button id="show">Show Paragraph</button>
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("p").addClass(check());
+
+            });
+        });
+
+        function check() {
+
+            var d1 = document.getElementById("datepicker1").value;
+            var date1 = new Date(d1);
+            var month = date1.getMonth();
+            if (month >= 0 && month <= 2)
+                alert("First Quarter");
+            
+            else if (month >= 3 && month <= 5)
+                alert("Second Quarter");
+
+            else if (month >= 6 && month <= 8)
+                alert("Third Quarter");
+            else
+                alert("Forth Quarter");
+        }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <p>From Date: <input type="date" id="datepicker1"></p>
+    <button>Check</button>
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+     <script>
+        $(document).ready(function () {
+            $("#buttonUncheck").click(function () {
+                $("p").addClass(uncheck());
+
+            });
+        });
+        
+
+        function uncheck()
+        {
+            
+            $("#radio1").prop("checked", false);
+            $("#radio2").prop("checked", false);
+            $("#checkbox1").prop("checked", false);
+            $("#checkbox2").prop("checked", false);
+        }
+
+        </script>
+    <script>
+        $(document).ready(function () {
+            $("#buttonCheck").click(function () {
+                $("p").addClass(check());
+
+            });
+        });
+        function check() {
+            
+            $("#radio1").prop("checked", true);
+            $("#radio2").prop("checked", true);
+            $("#checkbox1").prop("checked", true);
+            $("#checkbox2").prop("checked", true);
+        }
+    </script>
+    <title></title>
+</head>
+<body>
+    <P>
+    <button id="buttonCheck">Check</button>
+    <button id="buttonUncheck">Uncheck</button>
+
+    <br>
+    <input id="radio1" type="radio">
+    <input id="radio2" type="radio">
+    <br>
+    <input id="checkbox1" type="checkbox">
+    <input id="checkbox2" type="checkbox">
+</P>        
+</body>
+</html>

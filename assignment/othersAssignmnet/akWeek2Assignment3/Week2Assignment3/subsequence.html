@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script>
+        function find()
+        {
+            var str1 = document.getElementById("box1").value;
+            var str2 = document.getElementById("box2").value;
+
+            if (!str1 || !str2)
+                return {
+                    length: 0,
+                    sequence: "",
+                    offset: 0
+                };
+
+            var sequence = "",
+                str1Length = str1.length,
+                str2Length = str2.length,
+                num = new Array(str1Length),
+                maxlen = 0,
+                lastSubsBegin = 0;
+
+            for (var i = 0; i < str1Length; i++) {
+                var subArray = new Array(str2Length);
+                for (var j = 0; j < str2Length; j++)
+                    subArray[j] = 0;
+                num[i] = subArray;
+            }
+            var thisSubsBegin = null;
+            for (var i = 0; i < str1Length; i++) {
+                for (var j = 0; j < str2Length; j++) {
+                    if (str1[i] !== str2[j])
+                        num[i][j] = 0;
+                    else {
+                        if ((i === 0) || (j === 0))
+                            num[i][j] = 1;
+                        else
+                            num[i][j] = 1 + num[i - 1][j - 1];
+
+                        if (num[i][j] > maxlen) {
+                            maxlen = num[i][j];
+                            thisSubsBegin = i - num[i][j] + 1;
+                            if (lastSubsBegin === thisSubsBegin) {
+                                sequence += str1[i];
+                            }
+                            else {
+                                lastSubsBegin = thisSubsBegin;
+                                sequence = "";
+                                sequence += str1.substr(lastSubsBegin, (i + 1) - lastSubsBegin);
+                            }
+                        }
+                    }
+                }
+            }
+            alert("Sequence: " + sequence);
+           
+        }
+        
+    </script>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+
+    Enter String 1:<input type="text" id="box1">
+    <br>
+    Enter String 2:<input type="text" id="box2">
+    <br>
+    <button onclick="find()">Find</button>
+</body>
+</html>

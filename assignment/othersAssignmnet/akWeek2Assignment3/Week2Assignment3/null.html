@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                var n = document.getElementById("url").value;
+                
+                if (n === null)
+                    alert("Null Value");
+                else
+                    alert("Not Null");
+            });
+        });
+
+    </script>
+    <title></title>
+</head>
+<body>
+    <p>Enter: <input type="text" id="url" /></p>
+    <button>check</button>
+</body>
+</html>
+
+

@@ -1,0 +1,42 @@
+﻿body {
+  overflow:hidden;
+}
+@keyframes spin{
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  margin:0;
+  background-color:#000;
+}
+
+.ball {
+      position: absolute;
+      background-color:#00E8FF;
+      z-index: 1;
+      width: 550px;
+      height: 550px;
+  
+
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+
+      transition: all 0.5s ease !important;
+      -webkit-transition: all 0.5s ease !important;
+
+      top: 10%;
+      left: 25%;
+      border: 1px solid transparent;
+      border-radius: 40% !important;
+       
+       animation-name:spin;
+       animation-duration: 8s;
+       animation-iteration-count: infinite;
+       animation-timing-function: linear;
+    }

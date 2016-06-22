@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Table</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+   
+    <script>
+        $(document).ready(function () {
+            $('#btn1').click(function () {
+                
+                var search = document.getElementById("box1").value;
+
+                var table = $('#tbl1');
+
+                table.find('tr').each(function (index, row)
+                {
+                    var allCells = $(row).find('td');
+                    if (allCells.length > 0) {
+                        var found = false;
+                        allCells.each(function (index, td)
+                        {
+                            var regExp = new RegExp(search, 'i');
+                            if (regExp.test($(td).text()))
+                            {
+                                found = true;
+                                return false;
+                            }
+                        });
+                        if (found == true) $(row).show();
+                        else $(row).hide();
+                    }
+                });
+            });
+        });      
+
+        $(document).ready(function () {
+            $('th').each(function (column) {
+                $(this).addClass('head').click(function () {
+                    var sort = function ($cell) {
+                        return $cell.find('.sort-key').text().toUpperCase() + ' ' + $cell.text().toUpperCase();
+
+                    };
+
+                    var sortDirection = $(this).is('.sorted-asc') ? -1 : 1;
+                    var $rows = $(this).parent().parent().parent().find('tbody tr').get();
+                    var bob = 0;
+
+                    $.each($rows, function (index, row) {
+                        row.sortKey = sort($(row).children('td').eq(column));
+                    });
+
+                    $rows.sort(function (a, b) {
+                        if (a.sortKey.indexOf('-') == -1 && (!isNaN(a.sortKey) && !isNaN(a.sortKey))) {
+
+                            if (parseInt(a.sortKey) < parseInt(b.sortKey)) {
+                                return -sortDirection;
+                            }
+                            if (parseInt(a.sortKey) > parseInt(b.sortKey)) {
+                                return sortDirection;
+                            }
+
+                        } else {
+                            if (a.sortKey < b.sortKey) {
+                                return -sortDirection;
+                            }
+                            if (a.sortKey > b.sortKey) {
+                                return sortDirection;
+                            }
+                        }
+                        return 0;
+                    });
+
+                    $.each($rows, function (index, row) {
+                        $('tbody').append(row);
+                        row.sortKey = null;
+                    });
+
+                    $('th').removeClass('sorted-asc sorted-desc');
+                    var $sortHead = $('th').filter(':nth-child(' + (column + 1) + ')');
+                    sortDirection == 1 ? $sortHead.addClass('sorted-asc') : $sortHead.addClass('sorted-desc');
+                    $('td').removeClass('sorted').filter(':nth-child(' + (column + 1) + ')').addClass('sorted');
+                });
+            });
+        });
+       
+    </script>
+
+</head>
+<body>
+    <table border="1" id="tbl1">
+        <thead>
+        <tr><th class="head">Name</th><th class="head">City</th><th class="head">ID</th></tr>
+            </thead>
+        <tbody>
+        <tr><td>Akshay</td><td>Dehradun</td><td>22400</td></tr>
+        <tr><td>Nishant</td><td>Dehradun</td><td>10245</td></tr>
+        <tr><td>Rajesh</td><td>Chennai</td><td>2548</td></tr>
+            </tbody>
+    </table>
+
+    <br>
+    <input type="text" id="box1"><button id="btn1">Search</button>
+</body>
+</html>

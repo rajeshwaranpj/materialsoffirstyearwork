@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                
+                $("p").fadeTo(500, 0.40)
+            });
+            $("#btn2").click(function () {
+                $("p").fadeTo(500, 1);
+            });
+            
+
+        });
+    </script>
+    
+    <title></title>
+</head>
+<body>
+
+    <p>This is a paragraph.</p>
+
+    <button id="btn1">Fade out</button>
+    <button id="btn2">Fade in</button>
+
+</body>
+</html>

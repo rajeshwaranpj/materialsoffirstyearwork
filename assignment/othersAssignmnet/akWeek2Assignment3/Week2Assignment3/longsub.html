@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+        function find()
+        {
+            var str1 = document.getElementById("box1").value;
+            var str2 = document.getElementById("box2").value;
+
+            for (var i = 0; i < str1.length; i++)
+            {
+                for (var j = 0; j < str2.length; j++)
+                {
+                    if (str1.charAt(i) == str2.charAt(j))
+                    {
+                        var count = 0;
+                        var l=j;
+                        for (var k = i; k < str1.length; k++)
+                        {
+                            if (str1.charAt(i) == str2.charAt(l))
+                            {
+                                l++;
+                                count++;
+                            }
+                        }
+                    }
+                }
+            }
+
+            alert(count);
+        }
+        </script>
+    <title></title>
+</head>
+<body>
+    Enter String 1:<input type="text" id="box1">
+    <br>
+    Enter String 2:<input type="text" id="box2">
+    <br>
+    <button onclick="find()">Find</button>
+</body>
+</html>

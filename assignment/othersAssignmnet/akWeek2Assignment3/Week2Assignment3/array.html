@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        function generateArray()
+        {
+            var array = [];
+            for (var i = 1; i <= 10000; i++)
+            {
+                array[i] = Math.floor((Math.random() * 100000) + 1);
+            }
+
+            var qStart = new Date().getTime();
+            var qSort = quickSort(array, 0, 9999);
+            var qEnd = new Date().getTime();
+            var qTime = qEnd - qStart;
+            alert('Execution time for Quick Sort: ' + qTime + "ms");
+
+
+            var nStart = new Date().getTime();
+            var Sort = array.sort();
+            var nEnd = new Date().getTime();
+            var nTime = nEnd - nStart;
+            alert('Execution time for In-built Sort: ' + nTime + "ms");
+        }
+
+        function quickSort(arr, left, right) {
+            var i = left;
+            var j = right;
+            var tmp;
+            pivotidx = (left + right) / 2;
+            var pivot = parseInt(arr[pivotidx.toFixed()]);
+            /* partition */
+            while (i <= j) {
+                while (parseInt(arr[i]) < pivot)
+                    i++;
+                while (parseInt(arr[j]) > pivot)
+                    j--;
+                if (i <= j) {
+                    tmp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = tmp;
+                    i++;
+                    j--;
+                }
+            }
+
+            /* recursion */
+            if (left < j)
+                quickSort(arr, left, j);
+            if (i < right)
+                quickSort(arr, i, right);
+            return arr;
+        }
+        </script>
+</head>
+<body onload="generateArray()">
+    
+</body>
+</html>

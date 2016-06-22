@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $('body').on('contextmenu', function (e) { return false; });
+
+            });
+        });       
+    </script>
+    <title></title>
+</head>
+<body>
+    <p>If you want to disable right click on this paragraph, click below button.</p>
+    <button>Click</button>
+</body>
+</html>

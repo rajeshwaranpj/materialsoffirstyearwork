@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{42D6781E-4647-4E94-903D-E73ED74E1A12}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Week2Assignment3</RootNamespace>
+    <AssemblyName>Week2Assignment3</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="alphaDashUnderscore.html" />
+    <Content Include="anim.html" />
+    <Content Include="animation.html" />
+    <Content Include="Append.html" />
+    <Content Include="array.html" />
+    <Content Include="binaySearchTree.html" />
+    <Content Include="bst.html" />
+    <Content Include="checkedRadio.html" />
+    <Content Include="circle.html" />
+    <Content Include="date.html" />
+    <Content Include="divColor.html" />
+    <Content Include="fadeInOutAnimate.html" />
+    <Content Include="fadeOut500ms.html" />
+    <Content Include="firstBoxFocus.html" />
+    <Content Include="focusInOut.html" />
+    <Content Include="formHide.html" />
+    <Content Include="hexadecimal.html" />
+    <Content Include="hideShow.html" />
+    <Content Include="hyperlink.html" />
+    <Content Include="image\birds.png" />
+    <Content Include="image\car.png" />
+    <Content Include="image\connectlogo.png" />
+    <Content Include="image\help.png" />
+    <Content Include="image\question.png" />
+    <Content Include="image\road.jpg" />
+    <Content Include="IP.html" />
+    <Content Include="list.html" />
+    <Content Include="longsub.html" />
+    <Content Include="mouse.html" />
+    <Content Include="null.html" />
+    <Content Include="numberOfDays.html" />
+    <Content Include="print.html" />
+    <Content Include="quarter.html" />
+    <Content Include="rightClick.html" />
+    <Content Include="script\anim.js" />
+    <Content Include="script\survey.js" />
+    <Content Include="searchSort.html" />
+    <Content Include="slowHide.html" />
+    <Content Include="specifiedClass.html" />
+    <Content Include="style\anim.css" />
+    <Content Include="style\animation.css" />
+    <Content Include="style\survey.css" />
+    <Content Include="subsequence.html" />
+    <Content Include="survey.html" />
+    <Content Include="textChangeAppend.html" />
+    <Content Include="thousandSeprators.html" />
+    <Content Include="timingClicks.html" />
+    <Content Include="toggle.html" />
+    <Content Include="topScroll.html" />
+    <Content Include="url.html" />
+    <Content Include="weekend.html" />
+    <Content Include="widthHeight.html" />
+    <Content Include="windowWidth.html" />
+    <Content Include="zipCode.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

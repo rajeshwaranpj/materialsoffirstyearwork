@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function ()
+        {
+            $("#btn1").click(function () 
+            {                
+                var no = document.getElementById("num").value;                
+                var num_parts = no.toString().split(".");
+                num_parts[0] = num_parts[0].replace(/(?=(\d{3})+(?!\d))/g, ",");
+                alert(num_parts.join("."));
+             
+            });
+        });
+
+    </script>
+    <title></title>
+</head>
+<body>
+    <p>Enter: <input type="number" id="num" /></p>
+    <button id="btn1">Convert</button>
+</body>
+</html>
+
+

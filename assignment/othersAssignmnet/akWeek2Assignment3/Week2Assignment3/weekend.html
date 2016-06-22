@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("p").addClass(day());
+
+            });
+        });
+
+        function day() {
+            
+            var d = document.getElementById("datepicker1").value;
+            var d1 = new Date(d);
+            var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+            var day = days[d1.getDay()];
+
+            day = day.toUpperCase();
+            if (day == 'SUNDAY' || day == 'SATURDAY')
+
+                alert("Weekend. Today is: " + day);
+
+            else
+                alert("Go to office. Today is: " + day);
+        }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <p>Date: <input type="date" id="datepicker1"></p>
+    <button>find</button>
+</body>
+</html>

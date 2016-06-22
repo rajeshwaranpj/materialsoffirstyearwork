@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            alert("<p>: "+$("p").hasClass("specifiedClass").toString());
+            alert("<div>: "+$("div").hasClass("specifiedClass").toString());
+            alert("<article>: "+$("article").hasClass("specifiedClass").toString());
+        });
+
+       
+    </script>
+
+    <title></title>
+</head>
+<body>
+<p class="specifiedClass">Paragraph has the class which we are searching for.</p>
+    <br>
+    <div class="abc">div does not have the class we are searching for.</div>
+    <br>
+    <article class="specifiedClass">article has the class we are searching for.</article>
+</body>
+</html>

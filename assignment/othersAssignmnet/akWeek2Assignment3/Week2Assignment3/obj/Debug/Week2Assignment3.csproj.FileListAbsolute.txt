@@ -1,0 +1,9 @@
+c:\users\v-akskum\documents\visual studio 2013\Projects\Week2Assignment3\Week2Assignment3\bin\Debug\Week2Assignment3.exe.config
+c:\users\v-akskum\documents\visual studio 2013\Projects\Week2Assignment3\Week2Assignment3\bin\Debug\Week2Assignment3.exe
+c:\users\v-akskum\documents\visual studio 2013\Projects\Week2Assignment3\Week2Assignment3\bin\Debug\Week2Assignment3.pdb
+c:\users\v-akskum\documents\visual studio 2013\Projects\Week2Assignment3\Week2Assignment3\obj\Debug\Week2Assignment3.csprojResolveAssemblyReference.cache
+c:\users\v-akskum\documents\visual studio 2013\Projects\Week2Assignment3\Week2Assignment3\obj\Debug\Week2Assignment3.exe
+c:\users\v-akskum\documents\visual studio 2013\Projects\Week2Assignment3\Week2Assignment3\obj\Debug\Week2Assignment3.pdb
+C:\Users\v-rapj\Downloads\othersassign\akWeek2Assignment3\Week2Assignment3\bin\Debug\Week2Assignment3.exe.config
+C:\Users\v-rapj\Downloads\othersassign\akWeek2Assignment3\Week2Assignment3\obj\Debug\Week2Assignment3.exe
+C:\Users\v-rapj\Downloads\othersassign\akWeek2Assignment3\Week2Assignment3\obj\Debug\Week2Assignment3.pdb

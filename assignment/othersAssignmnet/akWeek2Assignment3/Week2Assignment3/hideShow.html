@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#hide").click(function () {
+                $("p").hide();
+            });
+            $("#show").click(function () {
+                $("p").show();
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#hide1").click(function () {
+                $("div").hide();
+            });
+            $("#show1").click(function () {
+                $("div").show();
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#hide2").click(function () {
+                $("table").hide();
+            });
+            $("#show2").click(function () {
+                $("table").show();
+            });
+        });
+    </script>
+    <title></title>
+</head>
+<body>
+    <p>This is a paragraph.</p>
+    <button id="hide">Hide Paragraph</button>
+    <button id="show">Show Paragraph</button>
+    <br><br>
+
+    <div><article>This is a divison.</article></div>
+    <button id="hide1">Hide Divison</button>
+    <button id="show1">Show Divison</button>
+    <br><br>
+
+    <table border="1">
+        <tr><td>1</td>
+        <td>2</td></tr>
+
+        <tr>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+    </table>
+    <button id="hide2">Hide Table</button>
+    <button id="show2">Show Table</button>
+    
+
+</body>
+</html>

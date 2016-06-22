@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+            });
+        });
+        
+    </script>
+
+    <script type="text/javascript">
+        function series()
+        {
+            for (var i = 1; i < 500; i++)
+            {
+                document.write("<br>");
+                document.write("<br>");
+                document.writeln(i);
+                document.write("<br>");
+            }
+        }
+        </script>
+    <title></title>
+</head>
+<body>
+    <button onclick="series()">Click Me</button>
+    <button id="btn1">Go To Top</button>
+    <br>
+</body>
+</html>

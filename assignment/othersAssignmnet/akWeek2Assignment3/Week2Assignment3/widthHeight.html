@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("p").addClass(calc());
+
+            });
+        });
+
+        function calc() {
+            
+            alert("Width of box: "+$("div").width() + " Height is: "+ $("div").height());
+        }
+    </script>
+
+    <style type="text/css">
+        div 
+        {
+            height:100px;
+            width:500px;
+            border-color:chocolate;
+            background-color:lightgray;  
+            border:double;  
+            padding:20px 20px 20px 20px;
+        }
+        </style>
+    <title></title>
+</head>
+<body>
+    <div>Hello. We will calculate this box width & height.</div>
+    <button>Calculate</button>
+</body>
+</html>

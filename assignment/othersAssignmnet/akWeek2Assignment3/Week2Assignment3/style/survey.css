@@ -1,0 +1,228 @@
+﻿html,body {
+    margin:0;
+    padding:0;
+    width:100%;
+    min-width: 1000px;
+    overflow-x: hidden; 
+    overflow-y: auto;
+   
+}
+mainBody {
+    /*overflow-y:auto;
+    overflow-x:hidden;*/
+}
+#header {
+    background-color:black;    
+    width:100%;
+    margin-left:0;
+    padding-left:0;
+    top:0;
+    left:0;
+    color:white;
+    padding-top:8px;
+    padding-bottom:8px;
+    
+}
+#line1 {
+    
+    text-align:right;
+}
+#imgline1 {
+    float:left;
+    height:6%;
+    width:15%;
+}
+
+#aline1 {
+    color:#00FFFF;
+    text-decoration:none;
+}
+
+#aline2 {
+    color:white;
+    text-decoration:none;
+}
+#table1 {
+    width:100%;
+}
+
+#column1 {
+    
+    width:20%;    
+}
+
+#column2 {
+    text-align:right; 
+    width:90%;   
+}
+
+#mainBody {
+    background-color:#E6E6E6;    
+    width:100%;
+    position:initial;
+    /*margin-top:%;*/
+    left:0;
+    color:black;
+    padding-left:50px;
+    float:left;
+    
+
+}
+
+#aline3 {
+    color:seagreen;
+    text-decoration:none;
+
+}
+
+#right {
+float:right;
+padding-right:10%;
+}
+
+.linkButton {
+    border-style: solid;
+    border-color:#585858 ;
+    background-color:#585858;
+    padding:1px 5px 1px 5px;
+    text-decoration:none;
+    line-height: 5px;
+    color:white;
+    font-weight: bold;
+}
+
+.linkButton:hover {
+     border-style: solid;
+    border-color:#424242;
+    background-color:#424242;
+    padding:1px 5px 1px 5px;
+     text-decoration:none;
+    line-height: 5px;
+    color:white;
+    font-weight: bold;
+}
+
+.linkButton1 {
+    border-style: solid;
+    border-color: #81F7F3;
+    background-color:#81F7F3;
+    padding:1px 5px 1px 5px;
+    text-decoration:none;
+    line-height: 5px;
+    color:white;
+    font-weight: bold;
+}
+
+#leftbuttons {
+    margin-top:-1%;
+    float:left;
+    width:55%;
+    
+}
+
+
+#rightbuttons {
+    float:right;
+    width:35%;
+    padding-right:10%;
+    margin-top:-1%;
+    
+    
+}
+
+#aline4 {
+    color:gray;
+    text-decoration:none;
+}
+
+#left {
+    float:left;
+}
+
+#width100 {
+    width:100%;
+}
+
+#contents {
+
+    margin-top:5%;
+}
+
+#createNewSurvey {
+    float:left;
+    margin-top:-1%;
+    font-size:medium;
+    height:10px;
+}
+
+#img2 {
+    
+    height:30px;
+}
+
+#margin {
+    margin-right:10%;
+}
+
+#rightbar {
+    width:40%;
+    float:right;
+    margin-top:-1%;   
+}
+
+
+
+#textBox1 {    
+    margin-top:-3%;
+}
+
+#rightCheckbox {
+float:left;
+}
+
+#width100margin {
+
+    width:100%;
+    margin-top:-2%;
+}
+#margin2 {
+    margin-right:25%;
+    margin-top:-2%;
+}
+
+#leftbar {
+    width:50%;
+    float:left;
+}
+
+#marginTop {
+    margin-top:-2%;
+}
+
+#table2 {
+    margin-top:-4%;
+    /*padding-left:5%;*/
+    width:100%;
+    
+}
+#columnAlignRight {
+    margin-top:-4%;
+    text-align:right;
+}
+
+#columnAlignLeft {
+    margin-top:-4%;
+    text-align:left;
+    padding-left:5%;
+}
+
+#table3 {
+    margin-top:-4%;
+    
+    width:100%;
+    
+}
+
+#rightSubmit {
+    float:right;
+}

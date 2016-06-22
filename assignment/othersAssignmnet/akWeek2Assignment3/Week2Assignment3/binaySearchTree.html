@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        function start() {
+            var BST = function () {
+                var Node = function (leftChild, key, value, rightChild, parent) {
+                    return {
+                        leftChild: (typeof leftChild === "undefined") ? null :
+                                   leftChild,
+                        key: (typeof key === "undefined") ? null : key,
+                        value: (typeof value === "undefined") ? null : value,
+                        rightChild: (typeof rightChild === "undefined") ? null :
+                                    rightChild,
+                        parent: (typeof parent === "undefined") ? null : parent
+                    };
+                },
+
+                root = new Node(),
+                searchNode = function (node, key) {
+                    if (node.key === null) {
+                        return null;
+                    }
+
+                    var nodeKey = parseInt(node.key, 10);
+
+                    if (key < nodeKey) {
+                        return searchNode(node.leftChild, key);
+                    } else if (key > nodeKey) {
+                        return searchNode(node.rightChild, key);
+                    } else {
+                        return node.value;
+                    }
+                },
+                insertNode = function (node, key, value, parent) {
+                    if (node.key === null) {
+                        node.leftChild = new Node();
+                        node.key = key;
+                        node.value = value;
+                        node.rightChild = new Node();
+                        node.parent = parent;
+                        return true;
+                    }
+
+                    var nodeKey = parseInt(node.key, 10);
+
+                    if (key < nodeKey) {
+                        insertNode(node.leftChild, key, value, node);
+                    } else if (key > nodeKey) {
+                        insertNode(node.rightChild, key, value, node);
+                    } else {
+                        node.value = value;
+                        return true;
+                    }
+                },
+                traverseNode = function (node, callback) {
+                    if (node.key !== null) {
+                        traverseNode(node.leftChild, callback);
+                        callback(node.key, node.value);
+                        traverseNode(node.rightChild, callback);
+                    }
+
+                    return true;
+                },
+                  minNode = function (node) {
+                      while (node.leftChild.key !== null) {
+                          node = node.leftChild;
+                      }
+
+                      return node.key;
+                  },
+                  maxNode = function (node) {
+                      while (node.rightChild.key !== null) {
+                          node = node.rightChild;
+                      }
+
+                      return node.key;
+                  },
+            successorNode = function (node) {
+                var parent;
+
+                if (node.rightChild.key !== null) {
+                    return minNode(node.rightChild);
+                }
+
+                parent = node.parent;
+                while (parent.key !== null && node == parent.rightChild) {
+                    node = parent;
+                    parent = parent.parent;
+                }
+
+                return parent.key;
+            },
+           predecessorNode = function (node) {
+               var parent;
+
+               if (node.leftChild.key !== null) {
+                   return maxNode(node.leftChild);
+               }
+
+               parent = node.parent;
+               while (parent.key !== null && node == parent.leftChild) {
+                   node = parent;
+                   parent = parent.parent;
+               }
+
+               return parent.key;
+           };
+
+                return {
+                    search: function (key) {
+                        var keyInt = parseInt(key, 10);
+
+                        if (isNaN(keyInt)) {
+                            return undefined;
+                        } else {
+                            return searchNode(root, keyInt);
+                        }
+                    },
+
+                    insert: function (key, value) {
+                        var keyInt = parseInt(key, 10);
+
+                        if (isNaN(keyInt)) {
+                            return undefined;
+                        } else {
+                            return insertNode(root, keyInt, value, null);
+                        }
+                    },
+                    traverse: function (callback) {
+                        if (typeof callback === "undefined") {
+                            callback = function (key, value) {
+                                print(key + ": " + value);
+                            };
+                        }
+
+                        return traverseNode(root, callback);
+                    },
+                    min: function () {
+                        return minNode(root);
+                    },
+                    max: function () {
+                        return maxNode(root);
+                    },
+                    successor: function () {
+                        return successorNode(root);
+                    },
+                    predecessor: function () {
+                        return predecessorNode(root);
+                    }
+                };
+            };
+            var ipTree = new BST();
+            alert("Inserting Data In Binary Tree");
+            ipTree.insert(parseInt(document.getElementById("box1").value), document.getElementById("box2").value);
+            ipTree.insert(parseInt(document.getElementById("box3").value), document.getElementById("box4").value);
+            
+            ipTree.insert(parseInt(document.getElementById("box5").value), document.getElementById("box6").value);
+            ipTree.insert(parseInt(document.getElementById("box7").value), document.getElementById("box8").value);
+            ipTree.insert(parseInt(document.getElementById("box9").value), document.getElementById("box10").value);
+            
+
+            var a1 = "";
+            ipTree.traverse(function (key, value)
+            {
+                alert("traversing");
+
+                a1 += "The value of " + key + " is " + value + "\n";
+               
+            });
+            alert(a1);
+
+            alert("searching");
+
+            alert("Searching for 3 results in: " + ipTree.search(3));
+            
+            alert("Minimum");
+            alert("Min is" + ipTree.min());
+          
+            alert("Maximum");
+            alert("Max is " + ipTree.max());
+           
+
+            alert("The successor of root is: " + ipTree.successor());
+            
+           alert("The predecessor of root is: " + ipTree.predecessor());
+        }
+    </script>
+
+    <form>
+        Enter Values: <br>
+        <input type="text" id="box1"><input type="text" id="box2"><br>
+        <input type="text" id="box3"><input type="text" id="box4"><br>
+        <input type="text" id="box5"><input type="text" id="box6"><br>
+        <input type="text" id="box7"><input type="text" id="box8"><br>
+        <input type="text" id="box9"><input type="text" id="box10"><br>
+        
+
+        <button onclick="start()">Submit</button>
+        </form>
+</body>
+</html>

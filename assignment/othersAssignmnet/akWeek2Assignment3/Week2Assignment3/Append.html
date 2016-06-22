@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+   
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("p").addClass(append());
+
+            });
+        });
+
+        function append()
+        {
+            $("<div><h1>Appended</h1></div>").appendTo("body");
+        }
+
+    </script>
+        <title></title>
+    </head>
+    <body>
+        <button>Click</button>
+    </body>
+</html>
