@@ -1,0 +1,33 @@
+IF OBJECT_ID('Activity','U') IS NOT NULL
+DROP TABLE Activity
+GO
+CREATE TABLE Activity(
+TaskID INT,
+Planned_Start DATE,
+Planned_Finish DATE
+)
+GO
+INSERT INTO Activity(TaskID,Planned_Start,Planned_Finish)
+SELECT 1,'2012-01-19','2012-03-09'
+SELECT * FROM Activity
+GO
+IF OBJECT_ID('Effort','U') IS NOT NULL
+DROP TABLE Effort
+GO
+CREATE TABLE Effort(
+TaskID INT,
+ResID INT,
+Period INT,
+Amount FLOAT
+)
+GO
+INSERT INTO Effort(TaskID,ResID,Period,Amount)
+SELECT 1,1,1,75.0 UNION ALL
+SELECT 1,1,2,140.0 UNION ALL
+SELECT 1,1,3,50.0 UNION ALL
+SELECT 1,1,4,60.0 UNION ALL
+SELECT 1,2,2,30.0 UNION ALL
+SELECT 1,2,3,10.0
+SELECT * FROM Effort
+GO
+
