@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6D126E00-F3EA-42E0-ABA5-F394ECF7B3CB}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>w2_A3</RootNamespace>
+    <AssemblyName>w2_A3</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SecA ques 3\Brute_Force.html" />
+    <Content Include="secA ques 5\Binary_search.html" />
+    <Content Include="Jquery Questions\Append.html" />
+    <Content Include="Jquery Questions\Checkbox_input.html" />
+    <Content Include="Jquery Questions\daylight.html" />
+    <Content Include="Jquery Questions\days.html" />
+    <Content Include="Jquery Questions\form.html" />
+    <Content Include="Jquery Questions\hyperlink.html" />
+    <Content Include="Jquery Questions\passed_days.html" />
+    <Content Include="Jquery Questions\print_web.html" />
+    <Content Include="Jquery Questions\quarter.html" />
+    <Content Include="Jquery Questions\ques1.1.html" />
+    <Content Include="Jquery Questions\ques13.html" />
+    <Content Include="Jquery Questions\ques16.html" />
+    <Content Include="Jquery Questions\ques19.html" />
+    <Content Include="Jquery Questions\ques2%281%29_.html" />
+    <Content Include="Jquery Questions\ques2%282%29.html" />
+    <Content Include="Jquery Questions\ques2%283%29.html" />
+    <Content Include="Jquery Questions\ques2%284%29.html" />
+    <Content Include="Jquery Questions\ques2%285%29.html" />
+    <Content Include="Jquery Questions\ques2%287%29.html" />
+    <Content Include="Jquery Questions\ques22.html" />
+    <Content Include="Jquery Questions\ques23.html" />
+    <Content Include="Jquery Questions\ques24.html" />
+    <Content Include="Jquery Questions\ques25.html" />
+    <Content Include="Jquery Questions\ques26.html" />
+    <Content Include="Jquery Questions\ques28.html" />
+    <Content Include="Jquery Questions\ques29.html" />
+    <Content Include="Jquery Questions\ques30.html" />
+    <Content Include="Jquery Questions\ques7.html" />
+    <Content Include="Jquery Questions\quest27.html" />
+    <Content Include="Jquery Questions\scroll_top.html" />
+    <Content Include="Jquery Questions\Search_html.html" />
+    <Content Include="Jquery Questions\specific tag.html" />
+    <Content Include="Jquery Questions\toggle.html" />
+    <Content Include="Jquery Questions\weekend.html" />
+    <Content Include="Jquery Questions\Width_height.html" />
+    <Content Include="Jquery Questions\Window_width.html" />
+    <Content Include="SecBQues2\animated.css" />
+    <Content Include="SecBQues2\animated_bg.html" />
+    <Content Include="SecBQues2\Images\blades.png" />
+    <Content Include="SecBQues2\Images\stand.png" />
+    <Content Include="SecBQues2\Images\zc06.png" />
+    <Content Include="SecB_Ques1\connect.css" />
+    <Content Include="SecB_Ques1\msconnect.html" />
+    <Content Include="SecB_Ques1\MsConnect.png" />
+    <Content Include="SecB_Ques1\ques mark.png" />
+    <Content Include="SecA ques 4\sort.html" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("button").click(function () {
+
+                $("#form1").hide();
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <form id="form1">
+        <p>enter the inputs</p>
+        <p><input type="text"/>
+        <select><option>male</option>
+            <option>Female</option></select>
+        <input type="radio" name="go"/> Hello &nbsp;
+            <input type="radio" name="go" /> world &nbsp;
+        </p>
+        
+    </form>
+    <button>click me to hide the form</button>
+</body>
+</html>

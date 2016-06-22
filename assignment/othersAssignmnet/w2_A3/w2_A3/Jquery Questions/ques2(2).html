@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>url</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#ip").addClass(validate_url());
+            });
+        });
+
+        function validate_url() {
+            var url = document.getElementById("url").value;
+            var regex = "^(http:\/\/www.|https:\/\/www.|ftp:\/\/www.|www.){1}([0-9A-Za-z]+\.)";
+            if (url.match(regex)) {
+                alert("this is a valid url");
+            }
+            else {
+                alert("Not a valid url");
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="url" />
+    <button>validate</button>
+
+</body>
+</html>

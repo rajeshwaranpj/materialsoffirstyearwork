@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        var last, time_diff;
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                if (last) {
+                    time_diff = event.timeStamp - last;
+                    $("div").append("Time since last event: " + time_diff + "<br>");
+                } else {
+                    $("div").append("<br>Click again.<br>");
+                }
+                last = event.timeStamp;
+                
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>Count the number of milliseconds between the two click events on a paragraph </p>
+    <div>Click on the above paragraph</div>
+
+</body>
+</html>

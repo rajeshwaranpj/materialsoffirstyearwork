@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            if (typeof (FileReader) != "undefined") {
+
+                $("#div1").show();
+                $("#div1").append("<img />");
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("#div1 img").attr("src", e.target.result);
+                }
+                reader.readAsDataURL($(this)[0].files[0]);
+            }
+        });
+    
+    </script>
+</head>
+<body>
+    <p>Drag and Drop</p>
+    <input type="file" id="filename" />
+    <div id="div1"></div>    
+</body>
+</html>

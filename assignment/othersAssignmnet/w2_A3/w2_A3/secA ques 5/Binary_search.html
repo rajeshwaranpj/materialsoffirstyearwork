@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+
+        var v1 = function ()
+        {
+          var v2 = function (leftChild, key, value, rightChild, parent)
+         {
+             return {
+               leftChild: (typeof leftChild == "undefined") ? null : leftChild,
+               key: (typeof key == "undefined") ? null : key,
+               value: (typeof value == "undefined") ? null : value,
+               rightChild: (typeof rightChild == "undefined") ? null : rightChild,
+               parent: (typeof parent == "undefined") ? null : parent
+           };
+       },
+
+       root = new v2(),
+       searchNode = function (node, key) {
+           if (node.key === null) {
+               return null;
+           }
+
+           var nodeKey = parseInt(node.key, 10);
+
+           if (key < nodeKey) {
+               return searchNode(node.leftChild, key);
+           }
+           else if (key > nodeKey)
+           {
+               return searchNode(node.rightChild, key);
+           }
+           else {
+               return node.value;
+           }
+       },
+
+      insertNode = function (node, key, value, parent) {
+           if (node.key === null) {
+               node.leftChild = new v2();
+               node.key = key;
+               node.value = value;
+               node.rightChild = new v2();
+               node.parent = parent;
+               return true;
+           }
+
+           var nodeKey = parseInt(node.key, 10);
+
+           if (key < nodeKey) {
+               insertNode(node.leftChild, key, value, node);
+           } else if (key > nodeKey) {
+               insertNode(node.rightChild, key, value, node);
+           } else {
+               node.value = value;
+               return true;
+           }
+       },
+       traverseNode = function (node, callback) {
+           if (node.key !== null) {
+               traverseNode(node.leftChild, callback);
+               callback(node.key, node.value);
+               traverseNode(node.rightChild, callback);
+           }
+
+           return true;
+       },
+         minNode = function (node) {
+             while (node.leftChild.key !== null) {
+                 node = node.leftChild;
+             }
+
+             return node.key;
+         },
+         maxNode = function (node) {
+             while (node.rightChild.key !== null) {
+                 node = node.rightChild;
+             }
+
+             return node.key;
+         },
+   successorNode = function (node) {
+       var parent;
+
+       if (node.rightChild.key !== null) {
+           return minNode(node.rightChild);
+       }
+
+       parent = node.parent;
+       while (parent.key !== null && node == parent.rightChild) {
+           node = parent;
+           parent = parent.parent;
+       }
+
+       return parent.key;
+   },
+  predecessorNode = function (node) {
+      var parent;
+
+      if (node.leftChild.key !== null) {
+          return maxNode(node.leftChild);
+      }
+
+      parent = node.parent;
+      while (parent.key !== null && node == parent.leftChild) {
+          node = parent;
+          parent = parent.parent;
+      }
+
+      return parent.key;
+  };
+
+       return {
+           search: function (key) {
+               var keyInt = parseInt(key, 10);
+
+               if (isNaN(keyInt)) {
+                   return undefined;
+               } else {
+                   return searchNode(root, keyInt);
+               }
+           },
+
+           insert: function (key, value) {
+               var keyInt = parseInt(key, 10);
+
+               if (isNaN(keyInt)) {
+                   return undefined;
+               } else {
+                   return insertNode(root, keyInt, value, null);
+               }
+           },
+           traverse: function (callback) {
+               if (typeof callback == "undefined") {
+                   callback = function (key, value) {
+                       print(key + ": " + value);
+                   };
+               }
+
+               return traverseNode(root, callback);
+           },
+           min: function () {
+               return minNode(root);
+           },
+           max: function () {
+               return maxNode(root);
+           },
+           successor: function () {
+               return successorNode(root);
+           },
+           predecessor: function () {
+               return predecessorNode(root);
+           }
+       };
+   };
+    var tree = new v1();
+    tree.insert(50, "second");
+    tree.insert(14, "first");
+    tree.insert(94, "fourth");
+    tree.insert(196, "third");
+       
+
+    tree.traverse(function (key, value) {
+        document.write("The value of " + value + " is " + key + ".");
+    });
+
+    alert("minimum value in tree is" + tree.min());
+    alert("maximum value in tree is " + tree.max());
+
+    alert("The successor of root is: " + tree.successor());
+    alert("The predecessor of root is: " + tree.predecessor());
+
+    </script>
+
+</head>
+<body>
+ 
+</body>
+</html>

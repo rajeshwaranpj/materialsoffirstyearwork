@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="Connect.css" />
+    <meta charset="utf-8" />
+    <title>Ms Connect</title>
+
+
+</head>
+
+<body>
+
+    <script>
+
+        function validate() {
+            var c = document.getElementById("internal").value;
+            if (c == "" || c == null)
+                alert("Plaese fill the require field");
+            else
+                alert("Form Submitted successfully");
+        }
+    </script>
+
+    <form>
+        <div class="header" >
+            <div id="logo">
+                <img src="MsConnect.png" />
+            </div>
+            <div id="contents">
+                <ul>
+                    <li>
+                        Microsoft Connect 15.7.33262.08250
+                        <a class="blue"> <b>Logged in as REDMOND\Connsa</b></a>
+                    </li>
+                    <li class="pad1">
+                        <a class="feed1" href="jhasnk.com">Your Connection|</a>
+                        <a class="feed1" href="jhakas.com">New Connection|</a>
+                        <a class="feed1" href="jhakas.com">What is Connect|</a>
+                        <a class="feed1" href="jhakas.com">Support</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="div2">
+            <p style="font-size:smaller; padding-left:6em;">
+                <a class="contents1" href=" co.com">Your Connection</a>>&nbsp;<a class="contents1" href="kjbs.com">Connection Home</a>
+                >&nbsp;<a class="contents1" href="sjhks.com">Assets</a>&nbsp;<a class="contents1" href="sjhks.com">Surveys</a>> Create Surveys
+                <a href="dskl.com" class="contents1a">Windows Server and System Center</a>
+            </p>
+
+            <p style="font-size:smaller; padding-left:6em;">
+                <a class="btn" href="www.google.com">Connection Home</a>
+                <a class="btn1" href="bdakjn">Assets</a>
+                <a class="btn" href="buttoan">Users</a>
+                <a class="btn" href="ash">Email</a>
+                <a class="btn" href="ton">Feedback</a>
+                <a class="btn" href="utton">Forums</a>
+                <a class="btn" href="bdwqas">Yammers</a>
+                <a class="btn" href="tdas">Report</a>
+                <a class="btn" href="wqkidhier">Admin</a>
+                <a class="btn" href="saon">Settings</a>
+                <a class="btn" href="asdtton">My Account</a>
+                <a class="btn" href="utton">System Health</a>
+            </p>
+            <p style="font-size:xx-small; padding-left:9em; padding-right:8em">
+
+                <a class="content2" href="ksh.com">Connect |</a>
+                <a class="content2" href="ldkjk.cm">Download |</a>
+                <a class="content2" href="ldkjk.cm">Images |</a>
+                <a class="content2" href="ldkjk.cm">Product Keys |</a>
+                <a class="content2" href="ldkjk.cm">Invitation Id Group</a>
+
+
+
+
+            </p>
+            <p style="margin-top:0;padding-top:0px; padding-left:80px; padding-right:5em">Create New Survey <img class="img1" src="ques mark.png" /> </p>
+        </div>
+
+        <div class="div3">
+            <p style="font-size:smaller; font-family:Arial"><b>Internal properties</b></p>
+
+            <table cellpadding="0" style="padding-left:6em; padding-top:0em; font-size:x-small ; margin-top:0;">
+                <tr style="padding-right:0;"><td>* Internal Type</td><td>:</td><td style="padding-left:2em;"><input type="text" id="internal" /></td></tr>
+                <tr><td align="right">* Type</td></tr>
+                <tr><td align="right">* Mandatory</td><td>:</td><td style="padding-left:2em;"><select style="width:172px; height:22px;"><option>General</option></select></td></tr>
+                <tr style="padding-top:0; ">
+                    <td align="right">* Behavior</td>
+                    <td>:</td>
+                    <td style="padding-left:2em;">
+                        <input type="date" />
+                        <p style="font-size:xx-small"><input type="checkbox" />Make survey responses anonymous</p>
+                        <p style="font-size:xx-small"><input type="checkbox" />Allow multiple survey submission</p>
+                        <p style="font-size:xx-small"><input type="checkbox" />Allow user to edit thier responses to this survey</p>
+
+                    </td>
+                </tr>
+            </table>
+            <p style="font-size:smaller; font-family:Arial"><b>External Properties</b></p>
+            <table style="padding-left:3.7em; padding-top:0em; font-size:x-small ; margin-top:0;">
+                <tr><td align="right">* Language</td><td>:</td><td style="padding-left:2em;"><select style="width:172px; height:22px;"><option>English</option></select></td></tr>
+                <tr><td align="right">* Survey Title</td><td>:</td><td style="padding-left:2em;"><input type="text" /></td></tr>
+                <tr><td align="right">* Description</td><td>:</td><td style="padding-left:2em;"><input style=" width:170px; height:50px;" type:"text" /></td></tr>
+                <tr><td align="right">* Activation Date</td><td>:</td><td style="padding-left:2em;"><input type="date" />
+                <tr>
+                    <td align="right">Thank you Message</td>
+                    <td>:</td>
+                </tr>
+                <tr><td><td></td><td style="padding-left:2em;"><input type="button" value="Submit" onclick="validate()" /></td></tr>
+            </table>
+        </div>
+        <div class="div4">
+            <p><b>Access Properties</b></p>
+            <p><input style="width:200px;height:10px; font-style:italic; padding-left:1em;" type="text" value="filter security groups" /></p>
+            <p><b>Special Groups</b></p>
+            <p><input type="checkbox" />Non-Registered Users</p>
+            <p><input type="checkbox" />Registered Users</p>
+        </div>
+
+        <div class="div5">
+            <p><b>Programs</b></p>
+            <p><input type="checkbox" />ProgramId 8084 Storage Management Partner</p>
+            <p><input type="checkbox" />ProgramId 8205 storesimple</p>
+            <p><input type="checkbox" />ProgramId 8205 Microsft Cloud Platform </p>
+            <p><input type="checkbox" />ProgramId 8205 kjxhaskjchjbcs Users</p>
+            <p><input type="checkbox" />ProgramId 8205 asduhcuhaslkh jwsccsa</p>
+            <p><input type="checkbox" />ProgramId 8205 WDAGSXKHBC KHBVHGYUWSX </p>
+            <p><input type="checkbox" />ProgramId 8205 jdhsjbcjklagsb scahascuih</p>
+            <p><input type="checkbox" />ProgramId 8205 MBAM vNext</p>
+            <p><input type="checkbox" />ProgramId 8084 Storage Management Partner</p>
+            <p><input type="checkbox" />ProgramId 8205 storesimple</p>
+            <p><input type="checkbox" />ProgramId 8205 Microsft Cloud Platform</p>
+            <p><input type="checkbox" />ProgramId 8205 kjxhaskjchjbcs Users</p>
+            <p><input type="checkbox" />ProgramId 8205 asduhcuhaslkh jwsccsa</p>
+            <p><input type="checkbox" />ProgramId 8205 WDAGSXKHBC KHBVHGYUWS </p>
+            <p><input type="checkbox" />ProgramId 8205 jdhsjbcjklagsb scahascuih</p>
+            <p><input type="checkbox" />ProgramId 8205 MBAM vNext</p>
+        </div>
+    </form>
+</body>
+</html>

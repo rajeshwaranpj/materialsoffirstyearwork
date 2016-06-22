@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+            $("p").addClass(passed_days());
+            });
+        });
+        function daylights_savings() {
+            var dt = document.getElementById("mydate").value;
+            var current = new Date(dt);
+            var dst = null;
+            for (var i = 0; i < 12; ++i) {
+                var d = new Date(current.getFullYear(), i, 1);
+                var offset = current.getTimezoneOffset();
+
+                if (dst === null)
+                    dst = offset;
+                else if (offset < dst) {
+                    dst = offset;
+                    break;
+                }
+                else if (offset > dst)
+                    break;
+            }
+            if ((current.getTimezoneOffset() == dst) | 0) {
+                alert("dagbsjhds");
+            }
+            else
+                alert("uwdgsjhagbds");
+        }
+
+      
+    </script>
+
+
+</head>
+<body>
+    <p><input type="date" id="mydate" />
+    
+    </p>
+    <button>Click me</button>
+
+</body>
+</html>

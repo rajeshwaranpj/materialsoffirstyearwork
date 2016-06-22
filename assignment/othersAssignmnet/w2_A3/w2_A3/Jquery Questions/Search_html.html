@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript" src="jquery-latest.js"></script>
+    <script type="text/javascript" src="jquery.tablesorter.js"></script>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="sortable.js"></script>
+
+    <script type="text/javascript">
+    var student, asc1 = 1,
+        asc2 = 1,
+        asc3 = 1;
+    window.onload = function () {
+        student = document.getElementById("student");
+    }
+
+    function sort_table(tbody, col, asc) {
+        var rows = tbody.rows,
+            rlen = rows.length,
+            arr = new Array(),
+            i, j, cells, clen;
+        for (i = 0; i < rlen; i++) {
+            cells = rows[i].cells;
+            clen = cells.length;
+            arr[i] = new Array();
+            for (j = 0; j < clen; j++) {
+                arr[i][j] = cells[j].innerHTML;
+            }
+        }
+
+        arr.sort(function (a, b) {
+            return (a[col] == b[col]) ? 0 : ((a[col] > b[col]) ? asc : -1 * asc);
+        });
+        for (i = 0; i < rlen; i++) {
+            rows[i].innerHTML = "<td>" + arr[i].join("</td><td>") + "</td>";
+        }
+    }
+    </script>
+    <style type="text/css">
+        table {
+            
+            border-collapse: collapse;
+            border: none;
+        }
+
+        th,
+        td {
+
+            border: 1px solid black;
+            padding: 4px 16px;
+            font-family: Times New Roman;
+            font-size: 20px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #e1d5d5;
+            cursor: pointer;
+        }
+    </style>
+
+
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th onclick="sort_table(student, 0, asc1); asc1 *= -1; asc2 = 1; asc3 = 1;">FirstName</th>
+                <th onclick="sort_table(student, 1, asc2); asc2 *= -1; asc3 = 1; asc1 = 1;">LastName</th>
+                <th onclick="sort_table(student, 2, asc3); asc3 *= -1; asc1 = 1; asc2 = 1;">Marks</th>
+            </tr>
+        </thead>
+        <tbody id="student">
+            <tr>
+                <td>Rahul</td>
+                <td>gulati</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>Rajeev</td>
+                <td>kumar</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>Anita</td>
+                <td>rawat</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>harsh</td>
+                <td>bhardwaj</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>rajesh</td>
+                <td>pj</td>
+                <td>23</td>
+            </tr>
+
+            <tr>
+                <td>Nishant</td>
+                <td>Bhai</td>
+                <td>20</td>
+            </tr>
+        </tbody>
+    </table>
+   
+</body>
+</html>

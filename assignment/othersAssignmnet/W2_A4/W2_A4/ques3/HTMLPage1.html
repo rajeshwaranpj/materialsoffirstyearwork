@@ -1,0 +1,338 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <!--<script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js">
+    </script>
+
+
+    <script>
+
+        $(document).ready(function () {
+            $("#demo").hide();
+           
+        });
+        function submission() {
+            $("#demo").show();
+            $("#mytable").append(
+                 "<tbody><tr><td>" + document.getElementById("qualification").value + "</td>"
+                + "<td>" + document.getElementById("college").value + "</td>"
+                + "<td>" + document.getElementById("college address").value + "</td>"
+                 + "<td>" + document.getElementById("percentage").value + "</td>"
+                + "<td>" + document.getElementById("grade").value + "</td>"
+                + "<td>" + document.getElementById("year").value + "</td>"
+                + "</table>")
+        }
+
+    </script>
+
+    <style>
+
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+           background-color:#c1d5b5;
+           
+        }
+
+     
+
+        #map {
+            position:fixed;
+            width: 30%;
+            height: 30%;
+            top: 50px;
+            left:360px;
+        }
+
+        .controls {
+            margin-top: 10px;
+            border: 1px solid transparent;
+            border-radius: 2px 0 0 2px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            height: 32px;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        #pac-input {
+            background-color: #fff;
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 300;
+            margin-left: 12px;
+            padding: 0 11px 0 13px;
+            text-overflow: ellipsis;
+            width: 2000px;
+        }
+
+            #pac-input:focus {
+                border-color: #4d90fe;
+            }
+
+        .pac-container {
+            font-family: Roboto;
+        }
+
+        #type-selector {
+            color: #fff;
+            background-color: #4d90fe;
+            padding: 5px 11px 0px 11px;
+        }
+
+            #type-selector label {
+                font-family: Roboto;
+                font-size: 13px;
+                font-weight: 300;
+            }
+            #mytable tr{
+             
+                border:solid;
+            }
+
+               #mytable td{
+                text-align:center;
+                border:solid 1px;
+            }
+    </style>
+    <title>Places Searchbox</title>
+    <style>
+        #target {
+            width: 200px;
+        }
+    </style>
+
+
+    
+
+</head>
+<body>
+    <h1> Student Details</h1>
+  
+        <div id="info" style="padding-top:4em;" title="info">
+
+
+            <table align="center">
+                <tr>
+                    <td>
+                        First Name
+                    </td>
+                    <td>:</td>
+                    <td>  <input type="text" name="fname" style="background-color:#eaa061" id="firstname" value="Enter name" required="" /></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Last Name
+                    </td>
+                    <td>:</td>
+                    <td>  <input type="text" style="background-color:#eaa061" name="lname" id="lastname" value="Enter name" required="" /></td>
+                </tr>
+
+                <!--<tr>
+                    <td>
+                        Locality
+                    </td>
+                    <td>:</td>
+                    <td>  <input type="text" name="loc" id="locality" /></td>
+                </tr>-->
+                <tr>
+
+                    <td>
+                        City
+                    </td>
+                    <td>:</td>
+                    <td>  <input type="text" style="background-color:#eaa061" id="city" required="" />
+                <tr>
+                    <td>
+                        Phone Number
+                    </td>
+                    <td>:</td>
+                    <td><input type="text" name="num" style="background-color:#eaa061" id="num" value="num" required="" /></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Email
+                    </td>
+                    <td>:</td>
+                    <td><input type="text" name="email" style="background-color:#eaa061" id="email" value="email" required="" /></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Qualification
+                    </td>
+                    <td>:</td>
+
+                    <td><button type="button" class="qualify" style="background-color:#788cef" data-toggle="modal" data-target="#myModal" />Add</td>
+                </tr>
+            </table>
+
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Enter Qualifications</h4>
+                        </div>
+                        <div class="modal-body">
+                            <table cellpadding="10" cellspacing="10">
+                                <tr>
+                                    <td>Qualification</td>
+                                    <td>:&nbsp;</td>
+                                    <td><input type="text" id="qualification" /></td>
+                                </tr>
+
+                                <tr>
+                                    <td>college</td>
+                                    <td>: &nbsp;</td>
+                                    <td><input type="text" id="college" /></td>
+                                </tr>
+
+                                <tr>
+                                    <td>college address</td>
+                                    <td>: &nbsp;</td>
+                                    <td><input type="text" id="college address" /></td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>percentage</td>
+                                    <td>: &nbsp;</td>
+                                    <td><input type="text" id="percentage" /></td>
+                                </tr>
+
+                                <tr>
+                                    <td>grade</td>
+                                    <td>: &nbsp;</td>
+                                    <td><input type="text" id="grade" /></td>
+                                </tr>
+
+                                <tr>
+                                    <td>year</td>
+                                    <td>: &nbsp;</td>
+                                    <td><input type="text" id="year" /></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="submission()" id="btn1">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div align="center" id="demo">
+            <br />
+            <table id="mytable" style="border:solid 1px">
+                <thead>
+                    <tr>
+                        <td>Qualification</td>
+
+                        <td>College</td>
+
+                        <td>College Address</td>
+
+                        <td>Percentage</td>
+
+                        <td>Grade</td>
+
+                        <td>Year</td>
+                    </tr>
+                </thead>
+            </table>
+            <br />
+
+            <button>submit form</button>
+        </div>
+
+    
+        <div id="map"></div>
+
+        <script>
+            
+            function initAutocomplete() {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    center: { lat: -33.8688, lng: 151.2195 },
+                    zoom: 13,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+
+              
+                var input = document.getElementById('city');
+                var searchBox = new google.maps.places.SearchBox(input);
+              
+
+               
+                map.addListener('bounds_changed', function () {
+                    searchBox.setBounds(map.getBounds());
+                });
+
+                var markers = [];
+               
+                searchBox.addListener('places_changed', function () {
+                    var places = searchBox.getPlaces();
+
+                    if (places.length == 0) {
+                        return;
+                    }
+
+                  
+                    markers.forEach(function (marker) {
+                        marker.setMap(null);
+                    });
+                    markers = [];
+
+                 
+                    var bounds = new google.maps.LatLngBounds();
+                    places.forEach(function (place) {
+                        var icon = {
+                            url: place.icon,
+                            size: new google.maps.Size(71, 71),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(17, 34),
+                            scaledSize: new google.maps.Size(25, 25)
+                        };
+
+                        
+                        markers.push(new google.maps.Marker({
+                            map: map,
+                            icon: icon,
+                            title: place.name,
+                            position: place.geometry.location
+                        }));
+
+                        if (place.geometry.viewport) {
+                         
+                            bounds.union(place.geometry.viewport);
+                        } else {
+                            bounds.extend(place.geometry.location);
+                        }
+                    });
+                    map.fitBounds(bounds);
+                });
+
+            }
+
+
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATeF9i0gYa9yKILBhiiM-yTaQs9i25fo0 &libraries=places&callback=initAutocomplete"
+                async defer></script>
+
+  </body>
+</html>

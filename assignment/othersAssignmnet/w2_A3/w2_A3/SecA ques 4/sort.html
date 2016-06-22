@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+  
+    <script>
+        var arr = [];
+        var start = new Date().getTime();
+        for (var i = 0, t = 10000; i < t; i++) {
+            arr.push(Math.round(Math.random() * t))
+        }
+        var temp = arr;
+        temp.sort();
+        var end = new Date().getTime();
+        var time = end - start;
+
+        document.write(temp);
+        document.write('Execution time for javascript sort: ' + time);
+
+        var start1 = new Date().getTime();
+        quickSort(arr, 0, arr.length - 1)
+
+        var end1 = new Date().getTime();
+        var time1 = end1 - start1;
+        document.write("\n" + arr);
+        document.write('Execution time for quick sort: ' + time1);
+        function quickSort(arr, left, right) {
+            var i = left;
+            var j = right;
+            var tmp;
+            pivotidx = (left + right) / 2;
+            var pivot = parseInt(arr[pivotidx.toFixed()]);
+
+            while (i <= j) {
+                while (parseInt(arr[i]) < pivot)
+                    i++;
+                while (parseInt(arr[j]) > pivot)
+                    j--;
+                if (i <= j) {
+                    tmp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = tmp;
+                    i++;
+                    j--;
+                }
+            }
+
+
+            if (left < j)
+                quickSort(arr, left, j);
+            if (i < right)
+                quickSort(arr, i, right);
+            return arr;
+        }
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

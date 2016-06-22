@@ -1,0 +1,44 @@
+﻿body
+{
+    background-color:#0094ff;
+}
+
+
+@-webkit-keyframes clouds{
+	from { background-position: 0 0; }
+	to { background-position: 100% 0; }
+}
+.animate-area	{ 
+	
+    
+	background-image: url(Images/zc06.png);
+	background-position: 0px 0px;
+	background-repeat: repeat-x;
+    animation: clouds 20s linear infinite;
+      
+}
+
+
+@-webkit-keyframes bladeSpin {
+   from { -webkit-transform: rotate(0deg); }
+   to { -webkit-transform: rotate(1400deg); }
+} 
+
+
+.blades {
+  
+    position: absolute;
+    top: 346px;
+    left: 285px;
+   -webkit-animation: bladeSpin 10s ease-in-out infinite;
+   -webkit-animation-duration: 30s;
+}
+
+
+.stand {
+ 
+   position: absolute;
+   bottom: 0;
+   left: 355px;
+   
+}

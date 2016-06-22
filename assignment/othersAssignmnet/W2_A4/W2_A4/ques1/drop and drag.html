@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+  
+
+</head>
+<body style="background-color:#b7b35e">
+    
+    <h1>Drag and Drop</h1>
+    
+    <div id="drop_zone">
+        <input type="file" id="files" name="files[]" multiple /> or  Drop files here</div>
+        <div><output id="list"></output></div>
+    
+
+   <style>
+    #drop_zone
+    {
+    width: 100%;
+    height: 40px;
+    background: #b6ff00;
+    border-radius: 5px;
+    border: 2px dashed #cfc0c0;
+    padding: 10px 0 0 0;
+    text-align: center;
+    font-size: 1em;
+    font-weight:normal;
+    margin: 0 5px 5px 0;
+    
+    }
+
+    </style>
+    <script>
+        function handleFileSelect(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+
+            var files = evt.dataTransfer.files; 
+
+            
+            var output = [];
+            for (var i = 0, f; f = files[i]; i++) {
+                output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                            f.size, ' bytes, last modified: ',
+                            f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                            '</li>');
+            }
+            document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+        }
+
+        
+
+        function handleDragOver(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+            evt.dataTransfer.dropEffect = 'copy'; 
+
+        
+        var dropZone = document.getElementById('drop_zone');
+        dropZone.addEventListener('dragover', handleDragOver, false);
+        dropZone.addEventListener('drop', handleFileSelect, false);
+    </script>
+    <script>
+    function handleFileSelect(evt) {
+        var files = evt.target.files; 
+
+        var output = [];
+        for (var i = 0, f; f = files[i]; i++) {
+            output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                        f.size, ' bytes, last modified: ',
+                        f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                        '</li>');
+        }
+        document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+    }
+
+    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+    </script>
+
+</body>
+</html>

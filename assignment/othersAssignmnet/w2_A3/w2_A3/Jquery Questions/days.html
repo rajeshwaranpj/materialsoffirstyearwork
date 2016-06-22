@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+            $("p").addClass(diff());
+            });
+        });
+
+  
+        function diff() {
+
+    var diff_days = (datediff("day", document.getElementById("first").value,document.getElementById("second").value));
+        alert("the difference in days are :" +diff_days.value);
+       }
+     </script>
+</head>
+<body>
+    <p><input type="date" id="first"  />
+    <input type="date" id="second"  />
+     </p>
+    <button>Click me</button>
+</body>
+</html>

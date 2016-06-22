@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>value type</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                var txt = $('#value');
+                if (txt.val() != null && txt.val() != '') {
+                    alert('your given input is: ' + txt.val())
+                }
+                else {
+                    alert('the given input is null')
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <p>Enter expression</p>
+    <input type="text" id="value" />
+    <button>validate</button>
+
+</body>
+</html>

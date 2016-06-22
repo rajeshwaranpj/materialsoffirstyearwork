@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>HexaDecimal</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#hex").addClass(validate_hex());
+            });
+        });
+
+        function validate_hex() {
+            var hex = document.getElementById("hex").value;
+            var regex = "[0-9][a-f|A-F]";
+            if (hex.match(regex)) {
+                alert("this is a valid hex");
+            }
+            else {
+                alert("Not a valid hex");
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>Enter Hexadecimal number</p>
+    <input type="text" id="hex" />
+    <button>validate</button>
+
+</body>
+</html>

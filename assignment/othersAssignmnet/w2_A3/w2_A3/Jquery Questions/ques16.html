@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+
+            if(   $('#mydiv').hasClass('element'))
+            {
+                alert("yes, the element class has found.");
+            }
+            else {
+                alert("no , the element class not found");
+            }
+
+        });
+
+    </script>
+</head>
+<body>
+    <div id="mydiv" class="element">
+        this is a element class inside a div.
+        </div>
+
+    
+</body>
+</html>

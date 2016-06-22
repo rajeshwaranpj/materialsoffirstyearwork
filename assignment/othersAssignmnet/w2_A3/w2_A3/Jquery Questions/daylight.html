@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+     <script src=http://momentjs.com/downloads/moment-timezone-with-data.js type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+            $("p").addClass(daylight());
+            });
+        });
+        function daylight() {
+            var dt = document.getElementById("mydate").value;
+            var today = new Date(dt);
+            if (today.dst())
+            {
+                alert("Daylight savings time!");
+            }
+
+            Date.prototype.stdTimezoneOffset = function () {
+                var jan = new Date(this.getFullYear(), 0, 1);
+                var jul = new Date(this.getFullYear(), 6, 1);
+                return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+            }
+
+            Date.prototype.dst = function () {
+                return this.getTimezoneOffset() < this.stdTimezoneOffset();
+            }
+           
+            
+       }
+    </script>
+</head>
+<body>
+    <p><input type="date" id="mydate" /></p>
+    <button>Click me</button>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#div1").fadeIn();
+                $("#div2").fadeIn("slow");
+                $("#panel").slideDown("slow");
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>fading</p>
+    <button>click</button>
+    <div id="div1" style="width:100px; height:100px; display:none; background-color:#ff6a00;"></div>
+    <br/>
+    <div id="div2" style="width:100px; height:100px; display:none; background-color:#b6ff00;"></div>
+    <div id="panel" style="padding:50px; display:none; background-color:aqua ">Hello world !</div>
+</body>
+</html>

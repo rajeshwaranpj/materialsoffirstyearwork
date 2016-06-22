@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Us Zip</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#zip").addClass(validate_zip());
+            });
+        });
+
+        function validate_zip() {
+            var zip = document.getElementById("zip").value;
+            var regex = "/^[0-9]{5}(?:-[0-9]{4})?$/";
+            if (zip.match(regex)) {
+                alert("this is a valid zip");
+            }
+            else {
+                alert("Not a valid zip");
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="zip" />
+    <button>validate</button>
+
+</body>
+</html>
