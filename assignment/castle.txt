@@ -1,0 +1,86 @@
+using System;
+using System.Collections.Generic;   // Using Namespaces
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Assign5in13
+{
+    class Program            
+    {
+        static void Main(string[] args)
+        {
+            bool go = false, tr = false;
+            do
+            {
+                int N = 0;
+                Console.Write("Enter The Number of castles:\t");          // Getting the inputs from the console
+                N = Convert.ToInt32(Console.ReadLine());
+                int[,] a = new int[N, 3];                           // Creating the array as per user input
+                int[,] b = new int[N, 3];
+
+                int cnt = 0, k = 0, r = 0;
+                for (int j = 0; j < N; j++)                      // For loop to get the Soldiers Count for each castle
+                {
+                    Console.Write("Enter the Soldiers by space seperator:\t");
+                    string full = Console.ReadLine();
+                    string[] parts = full.Split(' ');
+                    a[j, 0] = Convert.ToInt32(parts[0]);
+                    a[j, 1] = Convert.ToInt32(parts[1]);
+                    a[j, 2] = Convert.ToInt32(parts[2]);
+                }
+
+                do
+                {
+                    Console.Write("Enter the sequence by space seperator:\t");       // Enter the sequence of castle 
+                    string paths = Console.ReadLine();
+                    string[] each = paths.Split(' ');
+                    for (int j = 0; j < each.Count(); j++)        // Rearrange as per user input
+                    {
+                        b[j, 0] = a[Convert.ToInt32(each[j]) - 1, 0];
+                        b[j, 1] = a[Convert.ToInt32(each[j]) - 1, 1];
+                        b[j, 2] = a[Convert.ToInt32(each[j]) - 1, 2];
+                    }
+                    for (int i = 0; i < N; i++)          // Finding the minimum soldiers for the sequence
+                    {
+                        if (k >= b[i, 0] && k >= (b[i, 1] + b[i, 2]))         // Check if the number of soldiers can win a castle
+                        {
+                            k = k - (b[i, 1] + b[i, 2]);
+                            cnt++;
+                            if (cnt == N)                   // After conquering all castle 
+                            {
+                                Console.WriteLine("Minimum required soldiers for conquering all castles in region is: {0}", r);
+                                break;
+                            }
+                        }
+                        else                // If the number of soldiers are not sufficient to win
+                        {                   
+                            r++;     // increment the count
+                            k = r;   // Assign k
+                            i = -1;  //  Initialize to -1 to make iteration from starting
+                            cnt = 0;  // Count is made as 0 so that it will start from first castle
+                        }
+                    }
+                    Console.WriteLine("-----------------------------------");
+                    Console.WriteLine("same region with different path press 1");
+                    Console.WriteLine("continue for different region press 9");
+                    Console.WriteLine("to exit press 0");
+                    int s = Convert.ToInt32(Console.ReadLine());
+                    if (s == 1)
+                        go = true;
+                    else if (s == 9)
+                    {
+                        tr = true;
+                        go = false;
+                    }
+                    else if (s == 0)
+                    {
+                        go = false;
+                        tr = false;
+                    }
+                } while (go);
+            } while (tr);
+                Console.ReadKey();
+        }
+    }
+}

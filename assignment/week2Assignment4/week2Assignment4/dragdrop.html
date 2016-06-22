@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Drag and Drop File</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    
+</head>
+<body>
+    <header>Drag and Drop Files to See its Details</header>
+    
+    <input type="file" id="files" style="display:none" name="files[]" multiple />
+    <div id="draghere">
+    
+     Drop files here
+    <br/>
+        </div><output id="droppedhere"></output>
+    <label id="mylabel" class="mylabel"></label>
+    <footer>Wipro Limited Drop Files to get its Details</footer>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            background-image: url('images/6794212-free-simple-backgrounds.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            text-align: left;
+        }
+
+        header {
+            text-decoration-color: #631d1d;
+            font-family: 'Baskerville Old Face';
+            font-size: 30px;
+            background-color: #428bca;
+            color: white;
+            clear: both;
+        }
+
+        footer {
+            background-color: #428bca;
+            color: white;
+            clear: both;
+            text-align: center;
+            padding: 5px;
+            margin-bottom: 0;
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+        }
+
+        #draghere {
+            width: 400px;
+            height: 100px;
+            background-color: #e8d7d7;
+            border: 1px dashed black;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            font-family: Verdana;
+            text-shadow: 0px 0px 12px black;
+            padding-top: 20px;
+            font-size: 20px;
+            clear: both;
+            overflow: hidden;
+        }
+    </style>
+
+    <script>
+        document.getElementById('files').addEventListener('change', handleFileSelects, false);
+    function handleFileSelect(evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+
+        var files = evt.dataTransfer.files;
+        var myout = [];
+        for (var i = 0, f; f = files[i]; i++) {
+            myout.push('<li>', escape(f.name), ' (', f.type || 'n/a', ') - ',
+                    f.size, ' bytes, last modified: ',
+                    f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                    '</li>');
+        }
+        document.getElementById('droppedhere').innerHTML+= '<ul>' + myout.join('') + '</ul>';
+
+        document.getElementById('mylabel').innerHTML = "Count :" + $('#droppedhere li').length;
+    }
+
+
+    function handleDragOver(evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+        evt.dataTransfer.dropEffect = 'copy';
+    }
+    var dragHere = document.getElementById('draghere');
+    dragHere.addEventListener('dragover', handleDragOver, false);
+    dragHere.addEventListener('drop', handleFileSelect, false);
+
+    function handleFileSelects(evt) {
+        var files = evt.target.files;
+        var myout = [];
+        for (var i = 0, f; f = files[i]; i++) {
+            myout.push('<li>', escape(f.name), ' (', f.type || 'n/a', ') - ',
+                    f.size, ' bytes, last modified: ',
+                    f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                    '</li>');
+        }
+        document.getElementById('droppedhere').appendChild += '<ul>' + myout.join('') + '</ul>';
+
+        document.getElementById('mylabel').innerHTML = "Count :" + $('#droppedhere li').length;
+    }
+    
+
+    </script>
+        
+    
+</body>
+</html>

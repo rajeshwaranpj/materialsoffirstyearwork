@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Add and Remove ThumbNail</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            background-image: url('images/6794212-free-simple-backgrounds.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            text-align: center;
+            }
+        #quali {
+           margin:auto;
+        }
+        </style>
+</head>
+<body>
+    <input type="file" id="file1" accept='image/*' onchange="onFileSelected(event)" style="display:none"/>
+    <input type="file" id="file2" accept='image/*' onchange="onFileSelected(event)" style="display:none"/>
+    <input type="file" id="file3" accept='image/*' onchange="onFileSelected(event)" style="display:none"/>
+    <input type="file" id="file4" accept='image/*' onchange="onFileSelected(event)" style="display:none"/>
+    <input type="file" id="file5" accept='image/*' onchange="onFileSelected(event)" style="display:none"/>
+    <input type="file" id="file6" accept='image/*' onchange="onFileSelected(event)" style="display:none"/>
+    <input type="file" id="file7" accept='image/*' onchange="onFileSelected(event)" style="display:none"/>
+    <input type="file" id="file8" accept='image/*' onchange="onFileSelected(event)" style="display:none"/>
+    <input type="file" id="file10" accept='image/*' onchange="onFileSelected(event)" style="display:none"/>
+    <input type="file" id="file11" accept='image/*' onchange="onFileSelected(event)" style="display:none"/>
+    <input type="file" id="file9" accept='image/*' onchange="onFileSelected(event)" style="display:none"/>
+    <p>Click on Placeholder to append THUMBNAILS to Page</p>
+    <img id="myimage0" onclick="openFileOption();" src="http://placehold.it/50x50" width="50" height="50"/>
+    <table id="quali">
+        <thead>
+        <tr class="head">
+            <th>Images:</th>
+            <th></th>
+        </tr>
+
+            </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        var count = 1;
+        function deleteRow(r) {
+            var i = r.parentNode.parentNode.rowIndex;
+            //document.getElementById("quali").deleteRow(i);
+            (function () {
+                $('tr:eq(' + i + ')', quali)
+                    .fadeOut( "slow", function () { document.getElementById("quali").deleteRow(i); });
+                
+                return false;
+            })();
+        }
+        function openFileOption() {
+            document.getElementById("file" + count).click();
+            count += 1;
+            debugger;
+        }
+        var imgcount = 0;
+        function onFileSelected(event) {
+            var selectedFile = event.target.files[0];
+            var reader = new FileReader();
+
+
+            reader.onload = function (event) {
+                var image = document.createElement("img");
+                imgcount += 1;
+                image.id = "myimage"+imgcount;
+                image.src = event.target.result;
+                image.height = 50;
+                image.width = 50;
+                image.title = selectedFile.name;
+                var jNewRow = $("<tr><td id="+image.id+"></td><td><button class="+"Delete"+" onclick=" + "deleteRow(this)" + ">Delete</button></td></tr>");
+                $("#quali tbody").prepend(jNewRow);
+                $("#"+image.id).html(image);
+            };
+
+            reader.readAsDataURL(selectedFile);
+        }
+        
+
+    </script>
+</body>
+</html>

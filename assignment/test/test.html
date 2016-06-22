@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+<script lan="javascript">
+
+
+function test ()
+{
+var text = document.getElementById("name").value;
+
+    $.ajax({
+
+        type: "GET",
+        url: 'details.json',
+        datatype: 'json',
+        success: function (data) {
+            debugger;
+          
+            var myout = "<table>";
+            for (i = 0; i < data.person.length; i++) {
+                
+			if(text == data.person[i].Name)
+			{
+                    myout += "<tr><td>Name: " + data.person[i].Name + "</td>    <td>Number: " + data.person[i].Number + "</td>";
+			}
+                
+            }
+		myout += "</table>";
+            document.getElementById("out").innerHTML = myout;
+        }
+    }).fail(function (data, status) {
+        alert(data.statusText);
+    });
+}
+</script>
+Type Something : <input type="text" id="name" onChange="test();"/>
+<div id="out"/>
+</body>
+
+</html>

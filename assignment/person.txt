@@ -1,0 +1,37 @@
+var person = [];
+var count = 0;
+function get() {
+    if (document.getElementById("name").value == "" &&
+    document.getElementById("age").value == "") {
+        alert("Provide an input");
+    }
+    else {
+        this.person[this.count] = { name: document.getElementById("name").value, age: document.getElementById("age").value, gender: document.getElementById("gender").selectedIndex };
+        this.count++;
+        document.getElementById("name").value = "";
+        document.getElementById("age").value = "";
+        document.getElementById("gender").selectedIndex = -1;
+    }
+
+}
+function displaymale() {
+    var disp = " ";
+    var y = document.getElementById("gender").options;
+    for (var iter = 0; iter < person.length; iter++) {
+        if (y[parseInt(window.person[iter].gender)].text == "Male") {
+            disp += "\nPerson: " + " name: " + window.person[iter].name + " age: " + window.person[iter].age + " gender: " + y[parseInt(window.person[iter].gender)].text;
+        }
+        
+    }
+    alert(disp);
+}
+function displayfem() {
+    var disp = " ";
+    var y = document.getElementById("gender").options;
+    for (var iter = 0; iter < person.length; iter++) {
+        if (y[parseInt(window.person[iter].gender)].text == "Female") {
+            disp += "\nPerson: " + " name: " + window.person[iter].name + " age: " + window.person[iter].age + " gender: " + y[parseInt(window.person[iter].gender)].text;
+        }
+    }
+    alert(disp);
+}

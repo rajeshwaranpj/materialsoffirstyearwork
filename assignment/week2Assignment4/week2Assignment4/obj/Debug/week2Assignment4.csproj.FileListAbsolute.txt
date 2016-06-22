@@ -1,0 +1,2 @@
+c:\users\v-rapj\documents\visual studio 2013\Projects\week2Assignment4\week2Assignment4\bin\Debug\week2Assignment4.exe.config
+C:\Users\v-rapj\Desktop\assignment\week2Assignment4\week2Assignment4\bin\Debug\week2Assignment4.exe.config

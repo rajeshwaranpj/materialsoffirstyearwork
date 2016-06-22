@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Form Submission</title>
+    <link href="stylesheet1.css" rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATeF9i0gYa9yKILBhiiM-yTaQs9i25fo0 &libraries=places&callback=initAutocomplete"
+            async defer></script>
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+
+    <script>
+        var allqual = [];
+        var counting = 0;
+        $(document).ready(function () {
+            $("#closed").click(function () { onsubmission(); });
+            $("#mysubs").click(function () { mysubs(); });
+        });
+        function deleteRow(r) {
+            var i = r.parentNode.parentNode.rowIndex;
+            //document.getElementById("quali").deleteRow(i);
+            (function () {
+                $('tr:eq(' + i + ')', quali)
+                    .fadeOut("slow", function () { document.getElementById("quali").deleteRow(i); });
+
+                return false;
+            })();
+        }
+        function mysubs() {
+            $("#eval").validate({
+                rules: {
+                    firstname: {
+                        required: true
+                    },
+                    lastname: {
+                        required: true
+                    },
+                    address: {
+                        required: true
+                    },
+                    local: {
+                        required: true
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    phone: {
+                        required: true
+                    },
+                    pin: {
+                        required: true
+                    },
+                    city: {
+                        required: true
+                    }
+                },
+                messages: {
+                    firstname: "required",
+                    lastname: "required",
+                    address: "required",
+                    local: "required",
+                    email: "required",
+                    phone: "required",
+                    pin: "required",
+                    city: "required"
+                },
+                submitHandler: function (form) {
+                    alert("Details Submitted");
+                    location.replace('file:///C:/Users/v-rapj/Documents/Visual%20Studio%202013/Projects/week2Assignment4/week2Assignment4/details.html');
+                }
+            });
+        }
+        function onsubmission() {
+            
+            $("#commitform").validate({
+                rules: {
+                    qual: {
+                        required: true
+                    },
+                    col: {
+                        required: true
+                    },
+                    grad: {
+                        required: true
+                    },
+                    per: {
+                        required: true
+                    },
+                    add: {
+                        required: true
+                    },
+                    year: {
+                        required: true
+                    }
+                },
+                messages: {
+                    qual: "required",
+                    col: "required",
+                    grad: "required",
+                    per: "required",
+                    add: "required",
+                    year: "required"
+                },
+                submitHandler: function (form) {
+                    var qual1 = $("#qual").val();
+                    var col1 = $("#col").val();
+                    var per1 = $("#per").val();
+                    var grad1 = $("#grad").val();
+                    var year1=$("#year").val();
+                    var add1=$("#add").val();
+                    allqual.push( { qual: qual1 , col: col1, add: add1, per: per1, grad: grad1, year: year1 });
+                    
+                    var now = counting++;
+                    var jNewRow = $("<tr><td>" + window.allqual[now].qual + "</td><td>" + window.allqual[now].col + "</td><td>" + window.allqual[now].add + "</td><td>" + window.allqual[now].per + "</td><td>" + window.allqual[now].grad + "</td><td>" + window.allqual[now].year + "</td><td><input type="+"button"+" value="+"Delete"+" onclick="+"deleteRow(this)"+"></td></tr>");
+                    $("#quali tbody").prepend(jNewRow);
+                    jNewRow = "";
+                    newRow = "";
+                    $("#openModal").removeClass(function () {
+                        return $(this).prev().attr("class");
+                    }).addClass("modalDialog");
+                    var showBtn = document.getElementById('closed');
+
+                    showBtn.onclick = function () {
+                        var showme = document.getElementById("openModal");
+                        showme.style.display = "none";
+                        showme.style.opacity = 0;
+                    }
+                }
+            });
+        }
+        
+        function initAutocomplete() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 17.4123487, lng: 78.4080455},
+                zoom: 8,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var input = document.getElementById('local');
+            var searchBox = new google.maps.places.SearchBox(input);
+           // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+            map.addListener('bounds_changed', function () {
+                searchBox.setBounds(map.getBounds());
+            });
+
+            var markers = [];
+            searchBox.addListener('places_changed', function () {
+                var places = searchBox.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+
+                markers.forEach(function (marker) {
+                    marker.setMap(null);
+                });
+                markers = [];
+
+                var bounds = new google.maps.LatLngBounds();
+                places.forEach(function (place) {
+                    var icon = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(17, 34),
+                        scaledSize: new google.maps.Size(25, 25)
+                    };
+
+                    markers.push(new google.maps.Marker({
+                        map: map,
+                        icon: icon,
+                        title: place.name,
+                        position: place.geometry.location
+                    }));
+
+                    if (place.geometry.viewport) {
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                map.fitBounds(bounds);
+            });
+        }
+        
+    </script>
+</head>
+
+<body>
+    <header> Form For Detail Entry</header>
+    <form id="eval" method="post">
+        <table id="main">
+            <tr class="head"><th>Details Entry</th><th></th><th></th><th></th><th></th></tr>
+
+            <tr>
+                <td>First Name</td>
+                <td>:</td>
+                <td><input type="text" id="firstname" name="firstname" /></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>:</td>
+                <td><input type="text" id="lastname" name="lastname" /></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>:</td>
+                <td><input type="text" id="address" name="address" /></td>
+            </tr>
+            <tr>
+                <td>Locality</td>
+                <td>:</td>
+                <td><input type="text" id="local" name="local"/></td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>:</td>
+                <td><input type="text" id="city" name="city" /></td>
+            </tr>
+            <tr>
+                <td>Pin code</td>
+                <td>:</td>
+                <td><input type="number" id="pin" name="pin" /></td>
+            </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td>:</td>
+                <td><input type="number" id="phone" name="phone" /></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>:</td>
+                <td><input type="email" id="email" name="email" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" id="submit-form" class="hidden" /></td>
+                <td></td>
+            </tr>
+        </table>
+        </form>
+        <div id="openModal" class="modalDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+
+               <form id="commitform" method="post">
+                <table>
+                    <tr class="head"><th>Qualification Entry</th><th></th><th></th><th></th><th></th><th></th></tr>
+                    <tr>
+                        <td></td>
+                        <td>Qualification</td>
+                        <td>:</td>
+                        <td><input type="text" class="qual" id="qual" name="qual" /></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>College</td>
+                        <td>:</td>
+                        <td><input type="text" class="col" id="col" name="col" /></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>College Address</td>
+                        <td>:</td>
+                        <td><input type="text" class="add" id="add" name="add" /></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Percentage</td>
+                        <td>:</td>
+                        <td><input type="text" class="per" id="per" name="per" /></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Grade</td>
+                        <td>:</td>
+                        <td><input type="text" class="grad" id="grad" name="grad" /></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Year</td>
+                        <td>:</td>
+                        <td><input type="text" class="year" id="year" name="year" /></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        
+                        <td></td>
+                        <td></td>
+                        <td><button class="closed" id="closed" >submit</button> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                       
+                    </tr>
+                </table>
+                   </form>
+            </div>
+        </div>
+    
+    <table id="quali">
+        <thead>
+        <tr class="head">
+            <th>Qualification</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th><a href="#openModal"><img src="images/plus (1).png" height="20" width="20"/></a></th>
+            <th></th>
+        </tr>
+            <tr><td>Qualification</td><td>College</td><td>College Address</td><td>Percentage</td><td>Grade</td><td>Year</td><td></td></tr><tr></tr>
+
+            </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <table id="mysub">
+        <tr><td><label id="mysubs" for="submit-form">Submit</label></td></tr>
+    </table>
+    <div id="map"></div>
+    <footer>Wipro Limited Used for the detail Filling</footer>
+</body>
+</html>

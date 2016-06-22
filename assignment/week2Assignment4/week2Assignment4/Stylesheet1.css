@@ -1,0 +1,146 @@
+﻿body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    background-image: url('images/6794212-free-simple-backgrounds.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    }
+header{
+    text-decoration-color:#631d1d;
+    font-family:'Baskerville Old Face';
+    font-size:30px;
+    background-color:#428bca;
+    color:white;
+    clear:both;
+}
+footer{
+    background-color:#428bca;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px; 
+    margin-bottom:0;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+#map {
+    width: 600px;
+    height: 300px;
+    padding-top:20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:0px;
+    }
+#main {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+}
+.modalDialog {
+    position: fixed;
+    font-family: Cambria;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+        
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog:target {
+    opacity:1;
+    pointer-events:visible;
+}
+.modalDialog > div {
+    width: 700px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+.hidden {
+    display:none;
+}
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+        
+    border-radius: 12px;
+        
+    box-shadow: 1px 1px 3px #000;
+}
+.close:hover {
+    background: #00d9ff;
+}
+/*#openModal div table tr td button.closed {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    text-align: center;
+    width: 60px;
+    text-decoration: none;
+    font-weight: bold;
+        
+    box-shadow: 1px 1px 3px #000;
+}
+#openModal div table tr td button.closed:hover {
+    background: #00d9ff;
+}*/
+th{
+    font:bold 20px;
+}
+.head {
+  background: #428bca;
+  color: #fff;
+  border: none;
+}
+
+table {
+  color: #333;
+  font-family: sans-serif;
+  font-size: .9em;
+  font-weight: 300;
+  text-align: left;
+  line-height: 40px;
+  border-spacing: 0;
+  border: 2px solid #428bca;
+  width: 600px;
+  margin: 20px auto;
+  font-family:Trebuchet MS;
+}
+#quali tr td {
+    border-bottom:1pt solid #428bca;
+}
+#mysubs {
+    background-color:#428bca;
+    color: #fff;
+    padding:1px;
+    padding-left:2px;
+    padding-right:2px;
+}
+    #mysubs:hover {
+        background-color: #75b2e6;
+        cursor:pointer;
+    }
+    #mysub {
+    text-align:center;
+    }
