@@ -1,0 +1,4 @@
+Nice writeup, thanks!  But note that if you break backwards compatibility you should actually increment the major version number.  
+According to semantic versioning, major number = breaking change, 
+minor number = new features but compatible, 
+patch number = bug fixes only.
